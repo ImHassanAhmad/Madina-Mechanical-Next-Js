@@ -1,0 +1,52 @@
+.headerTitle {
+  height: 72px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 72px;
+  text-align: center;
+  font-feature-settings: "pnum" on, "lnum" on;
+  background: linear-gradient(97.54deg, #2ea83f 38.07%, #2ec743 93.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.headerDescription {
+  margin-top: 29px;
+  margin: 1vh;
+  width: 60vw;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  background: linear-gradient(97.54deg, #2ea83f 38.07%, #2ec743 93.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 945px) {
+  .headerTitle {
+    font-size: 30px;
+  }
+  .headerDescription {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 720px) {
+  .headerTitle {
+    font-size: 25px;
+  }
+  .headerDescription {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 330px) {
+  .headerTitle {
+    font-size: 20px;
+  }
+}

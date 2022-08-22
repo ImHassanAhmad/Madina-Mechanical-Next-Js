@@ -1,0 +1,60 @@
+.tab {
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(97.54deg, #2ea83f 38.07%, #2ec743 93.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.disabledTab {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 21px;
+  color: #cccccc;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.headerTitle {
+  font-weight: 700;
+  font-size: 29.0945px;
+  color: #383838;
+}
+
+.headerDescription {
+  padding-top: 20px;
+  margin: 1vh;
+  width: 60vw;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(56, 56, 56, 0.8);
+}
+
+@media (max-width: 945px) {
+  .headerTitle {
+    font-size: 30px;
+  }
+  .headerDescription {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 720px) {
+  .headerTitle {
+    font-size: 25px;
+  }
+  .headerDescription {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 330px) {
+  .headerTitle {
+    font-size: 20px;
+  }
+}

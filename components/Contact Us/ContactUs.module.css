@@ -1,0 +1,53 @@
+.headerTitle {
+  font-weight: bold;
+  font-size: 1.875rem;
+  color: #383838;
+  margin-bottom: 3vh;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #383838;
+}
+
+.input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 1.2vh 0 3vh 0;
+  display: inline-block;
+  background: #ffffff;
+  border: 2px solid rgba(83, 107, 121, 0.2);
+  box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.25),
+    -5px -5px 5px rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(56, 56, 56, 0.4);
+}
+
+.input[type="text"]:focus {
+  border: 3px solid #5fb762;
+}
+
+@media (max-width: 945px) {
+  .headerDescription {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .headerDescription {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 330px) {
+  .headerDescription {
+    font-size: 10px;
+  }
+}

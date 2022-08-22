@@ -1,0 +1,89 @@
+.headerTitle {
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 10%;
+}
+
+.headerDescription {
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.number {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 15%;
+}
+
+.button {
+  font-weight: bold;
+  font-size: 14px;
+  background: linear-gradient(97.54deg, #2ea83f 38.07%, #2ec743 93.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  white-space: nowrap;
+  margin-bottom: 30%;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 10%;
+}
+
+@media (max-width: 945px) {
+  .headerTitle {
+    font-size: 0.9rem;
+  }
+  .headerDescription {
+    font-size: 2rem;
+  }
+  .number {
+    font-size: 2rem;
+  }
+  .name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .headerTitle {
+    font-size: 0.8rem;
+  }
+  .headerDescription {
+    font-size: 1.8rem;
+  }
+  .number {
+    font-size: 1.7rem;
+  }
+  .name {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .headerTitle {
+    font-size: 0.7rem;
+  }
+  .headerDescription {
+    font-size: 1.3rem;
+  }
+  .number {
+    font-size: 1.4rem;
+  }
+  .name {
+    font-size: 0.65rem;
+  }
+}

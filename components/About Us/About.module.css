@@ -1,0 +1,90 @@
+.aboutTitle {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 19px;
+  background: linear-gradient(97.54deg, #2ea83f 38.07%, #2ec743 93.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.aboutText {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 42px;
+  letter-spacing: 0.02em;
+  color: #383838;
+  margin: 5px 0px 20px 0px;
+}
+
+.accordian {
+  width: 100%;
+  max-height: 56px;
+  transition: max-height 0.3s;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 21px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  -webkit-transition: max-height 0.3s;
+  -moz-transition: max-height 0.3s;
+  -ms-transition: max-height 0.3s;
+  -o-transition: max-height 0.3s;
+  transition: max-height 0.3s;
+  overflow: hidden;
+  /* max-height: 0; */
+}
+
+.accordianTitle {
+  font-weight: 550;
+  font-size: 20px;
+  line-height: 25px;
+  padding-left: 25px;
+  color: #4f4f4f;
+  margin: 20px 0px 20px 0px;
+}
+
+.accordianDescription {
+  margin: 0;
+  padding: 0 20px 20px 20px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 150%;
+  color: rgba(56, 56, 56, 0.8);
+}
+
+@media (max-width: 945px) {
+  .aboutTitle {
+    font-size: 12px;
+  }
+  .aboutText {
+    font-size: 20px;
+  }
+  .accordianTitle {
+    font-size: 15px;
+  }
+  .accordianDescription {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 720px) {
+  .accordianTitle {
+    font-size: 13px;
+  }
+  .accordianDescription {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 330px) {
+  .accordianTitle {
+    font-size: 12px;
+  }
+  .accordianDescription {
+    font-size: 10px;
+  }
+}

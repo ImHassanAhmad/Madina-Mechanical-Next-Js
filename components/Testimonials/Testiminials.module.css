@@ -1,0 +1,95 @@
+.grid {
+  padding: 3vh 5vw;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2vw;
+  background: #f9fdf9;
+}
+
+@media (max-width: 950px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) and (max-height: 900px) {
+  .headerMain {
+    text-align: center;
+  }
+  .headerDescription {
+    text-align: center;
+  }
+}
+
+.headerTitle {
+  font-weight: bold;
+  font-size: 1rem;
+  background: linear-gradient(97.54deg, #2ea83f 38.07%, #2ec743 93.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.headerMain {
+  font-weight: bold;
+  font-size: 1.87rem;
+  color: #383838;
+}
+
+.headerDescription {
+  font-size: 1rem;
+  color: rgba(56, 56, 56, 0.8);
+}
+
+.headerCardDescription {
+  font-size: 1rem;
+  color: rgba(56, 56, 56, 0.8);
+}
+
+.headerName {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.headerCardTitle {
+  font-size: 1.01rem;
+  font-weight: 400;
+  color: rgba(56, 56, 56, 0.8);
+}
+
+@media (max-width: 945px) {
+  .headerDescription {
+    font-size: 15px;
+  }
+  .headerCardDescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .headerDescription {
+    font-size: 13px;
+  }
+  .headerCardDescription {
+    font-size: 0.93rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .headerDescription {
+    font-size: 10px;
+  }
+  .headerCardDescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .headerMain {
+    font-size: 1.3rem;
+  }
+  .headerDescription {
+    font-size: 0.8rem;
+  }
+}
