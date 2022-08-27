@@ -13,7 +13,7 @@
 
 .number {
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: white;
   margin-bottom: 15%;
 }
@@ -56,6 +56,9 @@
   .name {
     font-size: 0.9rem;
   }
+  .button {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -71,6 +74,15 @@
   .name {
     font-size: 0.7rem;
   }
+  .button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .button {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 330px) {
@@ -85,5 +97,8 @@
   }
   .name {
     font-size: 0.65rem;
+  }
+  .button {
+    font-size: 9px;
   }
 }

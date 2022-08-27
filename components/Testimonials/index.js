@@ -24,7 +24,7 @@ function Grid(props) {
   }, []);
 
   return (
-    <div className={styles.grid}>
+    <div className={styles.grid} id="testimonials">
       {[
         { name: "description" },
         {
@@ -46,13 +46,12 @@ function Grid(props) {
             "Our hot water tank broke and stopped working a day before so we were without hot water. Since the AC/furnace was also due to get replaced and was giving problems, I called a few places and got the quote for all three items such AC, furnace and water tank. Did some research of my own as well about the product I got the quote for and decided to go with Madina Me-chanical Inc. and I am glad to make that decision.Will definitely recommend Madina Mechanical Inc. for anyone who wants quality work and satisfaction.",
         },
       ].map((elm, i) => (
-        <Fragment>
+        <div key={i}>
           {elm.name == "description" ? (
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                // justifyContent: "space-between",
                 alignItems:
                   windowDimensions && windowDimensions.width <= 720
                     ? "center"
@@ -126,7 +125,7 @@ function Grid(props) {
               </div>
             </div>
           )}
-        </Fragment>
+        </div>
       ))}
     </div>
   );

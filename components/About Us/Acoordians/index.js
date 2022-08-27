@@ -53,21 +53,14 @@ function Accordians(props) {
             description:
               "Our motto is integrity and customer satisfaction. Whether you need HVAC solutions at a large facility or need a minor homerepair, we make sure to provide you with the best HVAC service. We can’t wait to help with your heating, ventilation and air conditioning. ",
           },
-        ].map((e) => {
+        ].map((e, i) => {
           return (
-            <div
-              className={styles.accordian}
-              style={{
-                maxHeight: isShowing == e.name ? "198px" : "56px",
-              }}
-            >
+            <div className={styles.accordian} key={i}>
               <div
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  position: "relative",
-                  top: "-5px",
                 }}
               >
                 <p className={styles.accordianTitle}>{e.name}</p>
@@ -81,18 +74,24 @@ function Accordians(props) {
                     color: "#333333",
                     height: "17px",
                     width: "17px",
-                    paddingRight: "25px",
+                    marginRight: "25px",
                     cursor: "pointer",
                     transition: "0.5s",
-                    transform:
-                      isShowing == e.name
-                        ? "rotate(0.13turn) translateY(10px)"
-                        : "",
-                    transformOrigin: "center",
+                    transform: isShowing == e.name ? "rotate(45deg)" : "",
                   }}
                 />
               </div>
-              <p className={styles.accordianDescription}>{e.description}</p>
+
+              {isShowing == e.name ? (
+                <p
+                  className={styles.accordianDescription}
+                  style={{
+                    maxHeight: "max-content",
+                  }}
+                >
+                  {e.description}
+                </p>
+              ) : null}
             </div>
           );
         })}

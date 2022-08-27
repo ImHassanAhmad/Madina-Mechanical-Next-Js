@@ -26,7 +26,7 @@ function Grid(props) {
   }, []);
 
   return (
-    <div className={styles.grid}>
+    <div className={styles.grid} id="services">
       {[
         { name: "services" },
         { name: "card" },
@@ -34,8 +34,9 @@ function Grid(props) {
         { name: "a" },
         { name: "a" },
         { name: "a" },
-      ].map((elm) => (
+      ].map((elm, i) => (
         <div
+          key={i}
           style={{
             position: "relative",
             display: "flex",
@@ -76,10 +77,10 @@ function Grid(props) {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  padding: "10px 16px",
+                  padding: "5px 10px",
+                  width: "auto",
+                  height: "4vh",
                   gap: "10px",
-                  width: "95px",
-                  height: "35px",
                   background:
                     "linear-gradient(97.54deg, #2EA83F 38.07%, #2EC743 93.63%)",
                   borderRadius: "6px",

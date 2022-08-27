@@ -26,13 +26,15 @@ function Navbar(props) {
 
   return (
     <div
+      id="home"
       style={{
         width: "100%",
-        minHeight: "250px",
+        padding: "3vh 0",
+        height: "100%",
         height:
           props.windowDimensions && props.windowDimensions.width <= 780
-            ? "20vh"
-            : "50vh",
+            ? "100%"
+            : "40vh",
         background: "#4F4F4F",
         display: "flex",
         flexDirection: "column",
@@ -53,9 +55,10 @@ function Navbar(props) {
           top: "55%",
         }}
       >
-        {[1, 2, 3, 4, 5, 6].map(() => {
+        {[1, 2, 3, 4, 5, 6].map((elm, i) => {
           return (
             <div
+              key={i}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -63,9 +66,10 @@ function Navbar(props) {
                 marginBottom: "1vw",
               }}
             >
-              {[1, 2, 3, 4].map(() => {
+              {[1, 2, 3, 4].map((elm, i) => {
                 return (
                   <div
+                    key={i}
                     style={{
                       maxHeight: "6px",
                       maxWidth: "6px",
@@ -88,9 +92,10 @@ function Navbar(props) {
           bottom: "-3.1vw",
         }}
       >
-        {[1, 2, 3, 4, 5, 6].map((elm) => {
+        {[1, 2, 3, 4, 5, 6].map((elm, i) => {
           return (
             <div
+              key={i}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -98,9 +103,10 @@ function Navbar(props) {
                 marginBottom: "1vw",
               }}
             >
-              {[1, 2, 3, 4].map(() => {
+              {[1, 2, 3, 4].map((elm, i) => {
                 return (
                   <div
+                    key={i}
                     style={{
                       maxHeight: "6px",
                       maxWidth: "6px",
@@ -124,7 +130,7 @@ function Navbar(props) {
             bottom: "22px",
           }}
         >
-          <Image src={Scroll} height="30px" width="20px" />
+          <Image src={Scroll} height="30px" width="20px" alt="mouse scroll" />
         </div>
       ) : null}
     </div>

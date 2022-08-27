@@ -1,5 +1,5 @@
 .grid {
-  padding: 5vh 5vw;
+  padding: 3vh 5vw;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

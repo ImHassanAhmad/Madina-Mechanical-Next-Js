@@ -5,6 +5,7 @@ import Why2 from "../../assets/why2.png";
 import Why3 from "../../assets/why3.png";
 import Why4 from "../../assets/why4.png";
 import Why5 from "../../assets/why5.png";
+import Why6 from "../../assets/why6.png";
 import styles from "./WhyUs.module.css";
 
 function WhyUs(props) {
@@ -32,15 +33,15 @@ function WhyUs(props) {
     <div
       style={{
         width: "100%",
-        minHeight: "250px",
         height: "100%",
-        padding: "10vw",
+        margin: "3vh 0",
+        padding: "3vh 5vw",
         background: "#f7fdf8",
         display: "flex",
         flexDirection:
           windowDimensions && windowDimensions.width <= 780 ? "column" : "row",
         alignItems: "center",
-        gap: windowDimensions && windowDimensions.width <= 780 ? "10vh" : "5vw",
+        gap: windowDimensions && windowDimensions.width <= 780 ? "5vh" : "4vw",
         justifyContent: "space-between",
         position: "relative",
       }}
@@ -69,10 +70,10 @@ function WhyUs(props) {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            padding: "10px 16px",
+            padding: "5px 10px",
+            width: "auto",
+            height: "4vh",
             gap: "10px",
-            width: "90px",
-            height: "35px",
             background:
               "linear-gradient(97.54deg, #2EA83F 38.07%, #2EC743 93.63%)",
             borderRadius: "6px",
@@ -98,9 +99,9 @@ function WhyUs(props) {
             { img: Why1, des: "Fast and Easy Booking" },
             { img: Why2, des: "Energy Efficient Units" },
             { img: Why3, des: "Competitive Pricing" },
-          ].map((elm) => (
-            <div>
-              <Image src={elm.img} />
+          ].map((elm, i) => (
+            <div key={i}>
+              <Image src={elm.img} alt={elm.des} />
               <p className={styles.headerDescription}>{elm.des}</p>
             </div>
           ))}
@@ -109,10 +110,10 @@ function WhyUs(props) {
           {[
             { img: Why4, des: "All Major Brands in Stock" },
             { img: Why5, des: "Installation Available" },
-            { img: Why5, des: "30 Day Satisfaction Guarantee" },
-          ].map((elm) => (
-            <div>
-              <Image src={elm.img} />
+            { img: Why6, des: "30 Day Satisfaction Guarantee" },
+          ].map((elm, i) => (
+            <div key={i}>
+              <Image src={elm.img} alt={elm.des} />
               <p className={styles.headerDescription}>{elm.des}</p>
             </div>
           ))}
@@ -125,9 +126,10 @@ function WhyUs(props) {
           bottom: "5%",
         }}
       >
-        {[1, 2, 3, 4, 5, 6].map(() => {
+        {[1, 2, 3, 4, 5, 6].map((elm, i) => {
           return (
             <div
+              key={i}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -135,9 +137,10 @@ function WhyUs(props) {
                 marginBottom: "1vw",
               }}
             >
-              {[1, 2, 3].map(() => {
+              {[1, 2, 3].map((elm, i) => {
                 return (
                   <div
+                    key={i}
                     style={{
                       maxHeight: "6px",
                       maxWidth: "6px",

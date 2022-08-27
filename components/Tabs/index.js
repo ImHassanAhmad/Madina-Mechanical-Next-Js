@@ -28,7 +28,7 @@ function Navbar(props) {
     <div
       style={{
         width: "100%",
-        margin: "8vh 0px",
+        margin: "2vh 0px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -43,16 +43,16 @@ function Navbar(props) {
       </p>
       <div
         style={{
-          margin: "4vh 0",
+          margin: "2vh 0",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           gap: "5vw",
         }}
       >
-        {["Heating", "Ventilation", "Air Conditioning"].map((elm) => {
+        {["Heating", "Ventilation", "Air Conditioning"].map((elm, i) => {
           return (
-            <div style={{ display: "grid", gridGap: "10px" }}>
+            <div key={i} style={{ display: "grid", gridGap: "10px" }}>
               <p
                 className={tab == elm ? styles.tab : styles.disabledTab}
                 onClick={() => setTab(elm)}

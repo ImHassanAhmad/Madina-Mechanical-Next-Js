@@ -30,30 +30,82 @@ function ContactUs() {
 
   return (
     <div
+      id="contactUs"
       style={{
         width: "100%",
         minHeight: "250px",
         height: "100%",
-        padding: "1vh 5vw",
+        padding: "1vh 8vw",
         display: "flex",
-        // flexDirection:
-        //   windowDimensions && windowDimensions.width <= 780 ? "column" : "row",
-        // alignItems: "center",
-        // gap: windowDimensions && windowDimensions.width <= 780 ? "10vh" : "5vw",
+        flexDirection:
+          windowDimensions && windowDimensions.width <= 900
+            ? "column-reverse"
+            : "row",
+        alignItems: "center",
+        gap: windowDimensions && windowDimensions.width <= 900 ? "6vh" : "5vw",
         justifyContent: "space-between",
         position: "relative",
       }}
     >
-      <form>
+      {windowDimensions && windowDimensions.width <= 900 ? null : (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-3vh",
+            right: "1vw",
+          }}
+        >
+          {[1, 2, 3, 4, 5, 6].map((elm, i) => {
+            return (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "1vw",
+                  marginBottom: "1vw",
+                }}
+              >
+                {[1, 2, 3, 4].map((elm, i) => {
+                  return (
+                    <div
+                      key={i}
+                      style={{
+                        maxHeight: "6px",
+                        maxWidth: "6px",
+                        width: "0.6vw",
+                        height: "0.6vw",
+                        backgroundColor: "#61ce70",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      <form
+        style={{
+          width:
+            windowDimensions && windowDimensions.width <= 900 ? "100%" : "40vw",
+        }}
+      >
         <p className={styles.headerTitle}>Contact Us</p>
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
+            width: "100%",
             gap: "20px",
           }}
         >
-          <span>
+          <span
+            style={{
+              width: "100%",
+            }}
+          >
             <label className={styles.label}>First Name</label>
             <input
               className={styles.input}
@@ -63,7 +115,11 @@ function ContactUs() {
               placeholder="Enter your first name"
             />
           </span>
-          <span>
+          <span
+            style={{
+              width: "100%",
+            }}
+          >
             <label className={styles.label}>Last Name</label>
             <input
               className={styles.input}
@@ -128,11 +184,13 @@ function ContactUs() {
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11518.486030851504!2d-79.2365618!3d43.8014663!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3fc97325d9ff7cdd!2sMadina%20Mechanical%20Inc.!5e0!3m2!1sen!2s!4v1661164000540!5m2!1sen!2s"
         style={{
           border: 0,
-          width: "40vw",
+          width:
+            windowDimensions && windowDimensions.width <= 900 ? "100%" : "40vw",
           height: "40vh",
           borderRadius: "8px",
+          alignSelf: "center",
         }}
-        allowfullscreen=""
+        allowFullScreen="allowfullscreen"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>

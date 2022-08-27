@@ -28,6 +28,7 @@ function AboutUs() {
 
   return (
     <div
+      id="aboutUs"
       style={{
         width: "100%",
         height: "100%",
@@ -48,10 +49,10 @@ function AboutUs() {
           style={{
             height: "100%",
             width: "35vw",
-            marginTop: "10vh",
+            marginTop: "4vh",
           }}
         >
-          <Image src={Shape} />
+          <Image src={Shape} alt="green shape" />
         </div>
         <div
           style={{
@@ -61,7 +62,7 @@ function AboutUs() {
               windowDimensions && windowDimensions.width <= 780
                 ? "12vw"
                 : "3vw",
-            top: "14vh",
+            top: "5vh",
           }}
         >
           <div
@@ -73,7 +74,7 @@ function AboutUs() {
                   : "38vw",
             }}
           >
-            <Image src={About1} />
+            <Image src={About1} alt="hvac engineeringh image 1" />
             <div
               style={{
                 position: "absolute",
@@ -83,10 +84,15 @@ function AboutUs() {
                     : "30vw",
                 height: "15vh",
                 left: "55%",
-                bottom: "0",
+                bottom:
+                  windowDimensions && windowDimensions.width < 520
+                    ? "0"
+                    : windowDimensions && windowDimensions.width <= 780
+                    ? "10vh"
+                    : "1vh",
               }}
             >
-              <Image src={About2} />
+              <Image src={About2} alt="hvac engineeringh image 2" />
             </div>
           </div>
         </div>
@@ -96,7 +102,6 @@ function AboutUs() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: "5vh",
         }}
       >
         <Accordians windowDimensions={windowDimensions} />

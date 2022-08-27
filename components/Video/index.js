@@ -26,7 +26,7 @@ function WhyUs(props) {
     <div
       style={{
         width: "100%",
-        padding: "3vh 5vw",
+        padding: "0 5vw",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

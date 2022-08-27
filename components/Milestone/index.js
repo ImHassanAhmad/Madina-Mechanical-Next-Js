@@ -27,13 +27,10 @@ function Navbar(props) {
   return (
     <div
       style={{
-        margin: "10vh 0",
+        margin: "8vh 0 5vh 0",
         width: "100%",
-        minHeight: "250px",
-        height:
-          props.windowDimensions && props.windowDimensions.width <= 780
-            ? "20vh"
-            : "50vh",
+        height: "100%",
+        padding: "3vh 4vw",
         background:
           " linear-gradient(97.54deg, #2EA83F 38.07%, #2EC743 93.63%)",
         display: "flex",
@@ -70,8 +67,8 @@ function Navbar(props) {
               { name: "Years Experience", num: "12" },
               { name: "Work Completed", num: "375K" },
               { name: "Client Satisfied", num: "19K" },
-            ].map((elm) => (
-              <div>
+            ].map((elm, i) => (
+              <div key={i}>
                 <p className={styles.number}>{elm.num}</p>
                 <p className={styles.name}>{elm.name}</p>
               </div>
@@ -87,10 +84,11 @@ function Navbar(props) {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              padding: "10px",
+              padding: "5px 10px",
+              width: "auto",
+              height: "4vh",
               gap: "10px",
-              width: "100px",
-              height: "35px",
+              maxWidth: "100px",
               background: "white",
               borderRadius: "6px",
               border: "none",
@@ -106,12 +104,13 @@ function Navbar(props) {
         style={{
           position: "absolute",
           left: "1vw",
-          top: "-3.1vw",
+          top: "-3.6vw",
         }}
       >
-        {[1, 2, 3, 4, 5, 6].map((elm) => {
+        {[1, 2, 3, 4, 5, 6].map((elm, i) => {
           return (
             <div
+              key={i}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -119,9 +118,10 @@ function Navbar(props) {
                 marginBottom: "1vw",
               }}
             >
-              {[1, 2, 3, 4].map(() => {
+              {[1, 2, 3, 4].map((elm, i) => {
                 return (
                   <div
+                    key={i}
                     style={{
                       maxHeight: "6px",
                       maxWidth: "6px",
