@@ -113,8 +113,9 @@ function Navbar(props) {
             { icon: Fb, alt: "madina mechanical inc logo facebook" },
             { icon: Twitter, alt: "madina mechanical inc logo twitter" },
             { icon: Insta, alt: "madina mechanical inc logo instagram" },
-          ].map((elm) => (
+          ].map((elm, i) => (
             <Image
+              key={i}
               src={elm.icon}
               alt={elm.alt}
               style={{
