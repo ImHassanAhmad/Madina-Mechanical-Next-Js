@@ -108,10 +108,23 @@ function Navbar(props) {
           Madina Mechanical is Toronto’s top HVAC (heating, ventilation and air
           conditioning) service to the GTA for over 35 years.
         </p>
-        <span style={{ display: "flex", gap: "2vw" }}>
-          <Image src={Fb} alt="madina mechanical inc logo facebook" />
-          <Image src={Twitter} alt="madina mechanical inc logo twitter" />
-          <Image src={Insta} alt="madina mechanical inc logo instagram" />
+        <span style={{ display: "flex", gap: "4vw" }}>
+          {[
+            { icon: Fb, alt: "madina mechanical inc logo facebook" },
+            { icon: Twitter, alt: "madina mechanical inc logo twitter" },
+            { icon: Insta, alt: "madina mechanical inc logo instagram" },
+          ].map((elm) => (
+            <Image
+              src={elm.icon}
+              alt={elm.alt}
+              style={{
+                transform:
+                  windowDimensions && windowDimensions.width >= 580
+                    ? "scale(1)"
+                    : "scale(0.6)",
+              }}
+            />
+          ))}
         </span>
       </div>
       <div className={styles.grid}>
@@ -136,10 +149,23 @@ function Navbar(props) {
             },
           ].map((elm, i) => (
             <div
-              style={{ display: "flex", margin: "3vh 0", gap: "1vw" }}
+              style={{
+                display: "flex",
+                margin: "3vh 0",
+                gap: "1vw",
+                alignItems: "center",
+              }}
               key={i}
             >
-              <span style={{ minWidth: "20px" }}>
+              <span
+                style={{
+                  minWidth: "20px",
+                  transform:
+                    windowDimensions && windowDimensions.width >= 580
+                      ? "scale(1)"
+                      : "scale(0.6)",
+                }}
+              >
                 <Image src={elm.icon} alt={elm.alt} />
               </span>
               <p className={styles.headerDescription}>{elm.name}</p>

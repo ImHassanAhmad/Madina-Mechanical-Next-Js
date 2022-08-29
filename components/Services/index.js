@@ -72,33 +72,35 @@ function Grid(props) {
                 Madina Mechanical is Toronto’s top HVAC (heating, ventilation
                 and air conditioning) service.
               </p>
-              <button
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: "5px 10px",
-                  width: "auto",
-                  height: "4vh",
-                  gap: "10px",
-                  background:
-                    "linear-gradient(97.54deg, #2EA83F 38.07%, #2EC743 93.63%)",
-                  borderRadius: "6px",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <p
+              <a href="#contactUs">
+                <button
                   style={{
-                    fontWeight: "bold",
-                    fontSize: "11px",
-                    lineHeight: "150%",
-                    color: "white",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "5px 10px",
+                    width: "auto",
+                    height: "4vh",
+                    gap: "10px",
+                    background:
+                      "linear-gradient(97.54deg, #2EA83F 38.07%, #2EC743 93.63%)",
+                    borderRadius: "6px",
+                    border: "none",
+                    cursor: "pointer",
                   }}
                 >
-                  Get Started
-                </p>
-              </button>
+                  <p
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "11px",
+                      lineHeight: "150%",
+                      color: "white",
+                    }}
+                  >
+                    Get Started
+                  </p>
+                </button>
+              </a>
             </Fragment>
           ) : elm.name == "card" ? (
             <Fragment>
@@ -111,7 +113,8 @@ function Grid(props) {
                 the top of ourpriority list, which is why Madina Mechani-cal is
                 the best Toronto HVAC service
               </p>
-              <div
+              <a
+                href="#contactUs"
                 style={{
                   width: "100%",
                   position: "relative",
@@ -127,7 +130,7 @@ function Grid(props) {
                   icon={faArrowRight}
                   style={{ color: "white" }}
                 />
-              </div>
+              </a>
             </Fragment>
           ) : null}
         </div>

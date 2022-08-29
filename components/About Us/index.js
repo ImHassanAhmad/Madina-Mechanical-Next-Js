@@ -57,7 +57,6 @@ function AboutUs() {
         <div
           style={{
             position: "absolute",
-            // minHeight: "420px",
             left:
               windowDimensions && windowDimensions.width <= 780
                 ? "12vw"

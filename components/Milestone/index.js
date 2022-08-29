@@ -79,24 +79,26 @@ function Navbar(props) {
             level overviews. Iterative approaches to corporate strategy foster
             collaborative.
           </p>
-          <button
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "5px 10px",
-              width: "auto",
-              height: "4vh",
-              gap: "10px",
-              maxWidth: "100px",
-              background: "white",
-              borderRadius: "6px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            <p className={styles.button}>Get Started</p>
-          </button>
+          <a href="#contactUs">
+            <button
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "5px 10px",
+                width: "auto",
+                height: "4vh",
+                gap: "10px",
+                maxWidth: "100px",
+                background: "white",
+                borderRadius: "6px",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              <p className={styles.button}>Get Started</p>
+            </button>
+          </a>
         </div>
       </div>
 
@@ -104,7 +106,7 @@ function Navbar(props) {
         style={{
           position: "absolute",
           left: "1vw",
-          top: "-3.6vw",
+          top: "-4.2vw",
         }}
       >
         {[1, 2, 3, 4, 5, 6].map((elm, i) => {

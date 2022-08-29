@@ -89,7 +89,7 @@ function Navbar(props) {
         style={{
           position: "absolute",
           left: "1vw",
-          bottom: "-3.1vw",
+          bottom: "-3.4vw",
         }}
       >
         {[1, 2, 3, 4, 5, 6].map((elm, i) => {
@@ -103,7 +103,7 @@ function Navbar(props) {
                 marginBottom: "1vw",
               }}
             >
-              {[1, 2, 3, 4].map((elm, i) => {
+              {[1, 2, 3, 4].map((e, i) => {
                 return (
                   <div
                     key={i}

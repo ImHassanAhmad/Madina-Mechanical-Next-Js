@@ -32,7 +32,7 @@ function Grid(props) {
         minHeight:
           windowDimensions && windowDimensions.width > 780 ? "300px" : "300px",
         width: "100%",
-        display: "flex",  
+        display: "flex",
         justifyContent: "center",
         alignItems: "center",
         gap: "1vw",
@@ -92,13 +92,14 @@ function Grid(props) {
                     : "7px",
               }}
             >
-              Heating service doesn’t need to be stressful! We are Toronto’s
+              {props.tab} service doesn’t need to be stressful! We are Toronto’s
               best HVAC solution.
             </p>
-            <div
+            <a
+              href="#contactUs"
               style={{
                 position: "absolute",
-                bottom: "0",
+                bottom: "2vh",
                 left: "2vw",
                 display: "flex",
                 alignItems: "center",
@@ -108,9 +109,9 @@ function Grid(props) {
                 cursor: "pointer",
               }}
             >
-              <p style={{ color: "white", fontSize: "0.9rem" }}>Get Quote </p>
+              <p style={{ color: "white", fontSize: "0.84rem" }}>Get Quote </p>
               <FontAwesomeIcon icon={faArrowRight} style={{ color: "white" }} />
-            </div>
+            </a>
           </div>
           <div
             style={{

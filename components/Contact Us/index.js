@@ -158,9 +158,9 @@ function ContactUs() {
             justifyContent: "center",
             alignItems: "center",
             padding: "10px",
-            gap: "10px",
-            width: "100px",
-            height: "35px",
+            padding: "5px 10px",
+            width: "auto",
+            height: "4vh",
             background:
               "linear-gradient(97.54deg, #2EA83F 38.07%, #2EC743 93.63%)",
             borderRadius: "6px",

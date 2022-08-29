@@ -17,7 +17,7 @@
   margin: 1.2vh 0 3vh 0;
   display: inline-block;
   background: #ffffff;
-  border: 2px solid rgba(83, 107, 121, 0.2);
+  border: 1px solid rgba(83, 107, 121, 0.2);
   box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.25),
     -5px -5px 5px rgba(255, 255, 255, 0.25);
   border-radius: 6px;
@@ -31,7 +31,7 @@
 }
 
 .input[type="text"]:focus {
-  border: 3px solid #5fb762;
+  border: 1px solid #5fb762;
 }
 
 @media (max-width: 945px) {

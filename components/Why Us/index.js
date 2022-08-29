@@ -65,59 +65,63 @@ function WhyUs(props) {
           conditioning) service. Our professional team has provided affordable
           HVAC services to the GTA for over 35 years.{" "}
         </p>
-        <button
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "5px 10px",
-            width: "auto",
-            height: "4vh",
-            gap: "10px",
-            background:
-              "linear-gradient(97.54deg, #2EA83F 38.07%, #2EC743 93.63%)",
-            borderRadius: "6px",
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          <p
+        <a href="#contactUs">
+          <button
             style={{
-              fontWeight: "bold",
-              fontSize: "11px",
-              lineHeight: "150%",
-              color: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "5px 10px",
+              width: "auto",
+              height: "4vh",
+              gap: "10px",
+              background:
+                "linear-gradient(97.54deg, #2EA83F 38.07%, #2EC743 93.63%)",
+              borderRadius: "6px",
+              border: "none",
+              cursor: "pointer",
             }}
           >
-            Get Quote
-          </p>
-        </button>
+            <p
+              style={{
+                fontWeight: "bold",
+                fontSize: "11px",
+                lineHeight: "150%",
+                color: "white",
+              }}
+            >
+              Get Quote
+            </p>
+          </button>
+        </a>
       </div>
-      <div style={{ display: "grid", gridGap: "5vh" }}>
-        <div style={{ display: "flex", gap: "3vw" }}>
-          {[
-            { img: Why1, des: "Fast and Easy Booking" },
-            { img: Why2, des: "Energy Efficient Units" },
-            { img: Why3, des: "Competitive Pricing" },
-          ].map((elm, i) => (
-            <div key={i}>
-              <Image src={elm.img} alt={elm.des} />
-              <p className={styles.headerDescription}>{elm.des}</p>
-            </div>
-          ))}
-        </div>
-        <div style={{ display: "flex", gap: "3vw" }}>
-          {[
-            { img: Why4, des: "All Major Brands in Stock" },
-            { img: Why5, des: "Installation Available" },
-            { img: Why6, des: "30 Day Satisfaction Guarantee" },
-          ].map((elm, i) => (
-            <div key={i}>
-              <Image src={elm.img} alt={elm.des} />
-              <p className={styles.headerDescription}>{elm.des}</p>
-            </div>
-          ))}
-        </div>
+      <div className={styles.grid}>
+        {[
+          { img: Why1, des: "Fast and Easy Booking" },
+          { img: Why2, des: "Energy Efficient Units" },
+          { img: Why3, des: "Competitive Pricing" },
+          { img: Why4, des: "All Major Brands in Stock" },
+          { img: Why5, des: "Installation Available" },
+          { img: Why6, des: "30 Day Satisfaction Guarantee" },
+        ].map((elm, i) => (
+          <div key={i}>
+            <Image
+              src={elm.img}
+              alt={elm.des}
+              height={
+                windowDimensions && windowDimensions.width >= 580
+                  ? "24px"
+                  : "14px"
+              }
+              width={
+                windowDimensions && windowDimensions.width >= 580
+                  ? "24px"
+                  : "14px"
+              }
+            />
+            <p className={styles.headerDescription}>{elm.des}</p>
+          </div>
+        ))}
       </div>
       <div
         style={{

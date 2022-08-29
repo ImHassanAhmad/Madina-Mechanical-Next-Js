@@ -130,7 +130,7 @@ function Navbar() {
               color: "white",
               height: "17px",
               width: "17px",
-              paddingRight: "2vw",
+              marginRight: "2vw",
               cursor: "pointer",
             }}
           />
@@ -146,7 +146,7 @@ function Navbar() {
             zIndex: "2",
             borderRadius: "0 0 0 10px",
             background: "#424242",
-            height: menu ? "30vh" : "0",
+            height: menu ? "24.5vh" : "0",
             width: "30vw",
             borderTop: menu ? "0.5px solid #3b3935" : "",
           }}
