@@ -59,7 +59,7 @@ function Grid(props) {
                 ? "white"
                 : elm.name == "card"
                 ? " linear-gradient(180deg, #3CD250 -9%, #1B912B 109%)"
-                : "black",
+                : "grey",
             opacity: elm.name == "card" ? "0.8" : "1",
             borderRadius: "8.14935px",
             padding: "7%",

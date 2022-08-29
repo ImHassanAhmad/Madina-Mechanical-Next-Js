@@ -42,7 +42,7 @@ function Grid(props) {
       <div
         style={{
           height: "100%",
-          background: "black",
+          background: "grey",
           width: "40%",
           borderRadius: "8.14935px",
         }}
@@ -116,7 +116,7 @@ function Grid(props) {
           <div
             style={{
               height: "100%",
-              background: "green",
+              background: "grey",
               width: "30vw",
               borderRadius: "8.14935px",
             }}
@@ -125,7 +125,7 @@ function Grid(props) {
         <div
           style={{
             height: "50%",
-            background: "pink",
+            background: "grey",
             width: "100%",
             borderRadius: "8.14935px",
           }}
