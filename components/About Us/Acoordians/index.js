@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../About.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function Accordians(props) {
   const [isShowing, setIsShowing] = useState("Our motto");
+
+  useEffect(() => {
+    var panel = document.getElementById(`accordian0`);
+    panel.style.maxHeight = panel.scrollHeight + "px";
+  }, []);
+
   return (
     <div
       style={{
@@ -21,10 +27,6 @@ function Accordians(props) {
           props.windowDimensions && props.windowDimensions.width <= 780
             ? "5vh 3vw 0 3vw"
             : "10vh 5vw 0 0",
-        // marginTop:
-        //   props.windowDimensions && props.windowDimensions.width <= 780
-        //     ? "11vh"
-        //     : "10vh",
       }}
     >
       <p className={styles.aboutTitle}>ABOUT US</p>
@@ -55,7 +57,7 @@ function Accordians(props) {
           },
         ].map((e, i) => {
           return (
-            <div className={styles.accordian} key={i}>
+            <div className={styles.accordian} key={i} id={`accordian${i}`}>
               <div
                 style={{
                   display: "flex",
@@ -69,6 +71,12 @@ function Accordians(props) {
                   onClick={() => {
                     if (isShowing != e.name) setIsShowing(e.name);
                     else setIsShowing("");
+                    var panel = document.getElementById(`accordian${i}`);
+                    if (panel.style.maxHeight) {
+                      panel.style.maxHeight = null;
+                    } else {
+                      panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
                   }}
                   style={{
                     color: "#333333",
@@ -82,16 +90,7 @@ function Accordians(props) {
                 />
               </div>
 
-              {isShowing == e.name ? (
-                <p
-                  className={styles.accordianDescription}
-                  style={{
-                    maxHeight: "max-content",
-                  }}
-                >
-                  {e.description}
-                </p>
-              ) : null}
+              <p className={styles.accordianDescription}>{e.description}</p>
             </div>
           );
         })}

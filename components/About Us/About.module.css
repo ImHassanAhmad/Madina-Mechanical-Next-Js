@@ -27,13 +27,8 @@
   margin-bottom: 21px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
     rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-  -webkit-transition: height 0.3s;
-  -moz-transition: height 0.3s;
-  -ms-transition: height 0.3s;
-  -o-transition: height 0.3s;
-  transition: 0.3s;
-  overflow: hidden;
-  /* max-height: 0; */
+  max-height: 6vh;
+  transition: max-height 0.2s ease-out;
 }
 
 .accordianTitle {

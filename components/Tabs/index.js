@@ -26,6 +26,7 @@ function Navbar(props) {
 
   return (
     <div
+      id="tabs"
       style={{
         width: "100%",
         margin: "2vh 0px",
@@ -55,6 +56,7 @@ function Navbar(props) {
             <div key={i} style={{ display: "grid", gridGap: "10px" }}>
               <p
                 className={tab == elm ? styles.tab : styles.disabledTab}
+                style={{ userSelect: "none" }}
                 onClick={() => setTab(elm)}
               >
                 {elm}

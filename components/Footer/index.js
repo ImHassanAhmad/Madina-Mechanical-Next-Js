@@ -7,6 +7,7 @@ import Twitter from "../../assets/twitter.png";
 import Insta from "../../assets/insta.png";
 import Contact from "../../assets/contact.png";
 import Msg from "../../assets/msg.png";
+import Map from "../../assets/map.png";
 
 function Navbar(props) {
   function getWindowDimensions() {
@@ -104,7 +105,14 @@ function Navbar(props) {
           alt="madina mechanical inc logo"
         />
 
-        <p className={styles.headerDescription} style={{ margin: "3vh 0" }}>
+        <p
+          className={styles.headerDescription}
+          style={{
+            margin: "3vh 0",
+            textAlign:
+              windowDimensions && windowDimensions.width <= 900 ? "center" : "",
+          }}
+        >
           Madina Mechanical is Toronto’s top HVAC (heating, ventilation and air
           conditioning) service to the GTA for over 35 years.
         </p>
@@ -122,7 +130,7 @@ function Navbar(props) {
                 transform:
                   windowDimensions && windowDimensions.width >= 580
                     ? "scale(1)"
-                    : "scale(0.6)",
+                    : "scale(0.7)",
               }}
             />
           ))}
@@ -135,7 +143,7 @@ function Navbar(props) {
             {
               name: `100 McLevin Ave #212,
             Scarborough, ON M1B 5K1`,
-              icon: Msg,
+              icon: Map,
               alt: "madina mechanical inc logo adress",
             },
             {
@@ -167,7 +175,16 @@ function Navbar(props) {
                       : "scale(0.6)",
                 }}
               >
-                <Image src={elm.icon} alt={elm.alt} />
+                <Image
+                  src={elm.icon}
+                  alt={elm.alt}
+                  width={
+                    elm.alt == "madina mechanical inc logo adress" ? "16px" : ""
+                  }
+                  height={
+                    elm.alt == "madina mechanical inc logo adress" ? "22px" : ""
+                  }
+                />
               </span>
               <p className={styles.headerDescription}>{elm.name}</p>
             </div>
@@ -194,16 +211,18 @@ function Navbar(props) {
         <div>
           <p className={styles.headerTitle}>Company</p>
           {[
-            "Home",
-            "About Us",
-            "Our Services",
-            "Testimonials",
-            "Our Latest Work",
-            "Contact us",
+            { name: "Home", id: "#home" },
+            { name: "About Us", id: "#aboutUs" },
+            { name: "Our Services", id: "#services" },
+            { name: "Testimonials", id: "#testimonials" },
+            { name: "Our Latest Work", id: "#tabs" },
+            { name: "Contact us", id: "#contactUs" },
           ].map((elm, i) => (
-            <div style={{ margin: "1vh 0" }} key={i}>
-              <p className={styles.headerDescription}>{elm}</p>
-            </div>
+            <a key={i} href={elm.id}>
+              <div style={{ margin: "1vh 0" }} className={styles.hover}>
+                <p className={styles.headerDescriptionHover}>{elm.name}</p>
+              </div>
+            </a>
           ))}
         </div>
         <div>
