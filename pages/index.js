@@ -64,3 +64,5 @@ export default function Home({ apiData, reviews }) {
     </div>
   );
 }
+
+//CHECK
