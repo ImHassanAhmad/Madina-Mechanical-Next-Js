@@ -15,8 +15,8 @@ import { createClient } from "contentful";
 
 export async function getStaticProps() {
   const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+    space: "ekq2l24qwz6g",
+    accessToken: "lKmKCfDCDH-rUOQMkKxteCtKOtM0e3wTb_dUF0TbPk4",
   });
 
   const res = await client.getEntries({ content_type: "madinaMechanical" });
