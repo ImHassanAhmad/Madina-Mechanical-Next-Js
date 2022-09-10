@@ -12,7 +12,6 @@ function Grid(props) {
   }
 
   const [windowDimensions, setWindowDimensions] = useState(null);
-  const [tab, setTab] = useState("Heating");
 
   useEffect(() => {
     handleResize();
@@ -42,7 +41,10 @@ function Grid(props) {
       <div
         style={{
           height: "100%",
-          background: "grey",
+          backgroundImage: `url(http:${
+            props.fields[props.tab][0].fields.file.url
+          })`,
+          backgroundSize: "100%",
           width: "40%",
           borderRadius: "8.14935px",
         }}
@@ -116,7 +118,10 @@ function Grid(props) {
           <div
             style={{
               height: "100%",
-              background: "grey",
+              backgroundImage: `url(http:${
+                props.fields[props.tab][2].fields.file.url
+              })`,
+              backgroundSize: "100%",
               width: "30vw",
               borderRadius: "8.14935px",
             }}
@@ -125,7 +130,10 @@ function Grid(props) {
         <div
           style={{
             height: "50%",
-            background: "grey",
+            backgroundImage: `url(http:${
+              props.fields[props.tab][1].fields.file.url
+            })`,
+            backgroundSize: "100%",
             width: "100%",
             borderRadius: "8.14935px",
           }}

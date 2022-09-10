@@ -10,6 +10,12 @@
   text-fill-color: transparent;
 }
 
+.responsiveImg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .aboutText {
   font-weight: 700;
   font-size: 25px;
@@ -37,7 +43,7 @@
   /* line-height: 25px; */
   padding-left: 25px;
   color: #4f4f4f;
-  margin: 20px 0px 20px 0px;
+  margin: 2vh 0px;
 }
 
 .accordianDescription {

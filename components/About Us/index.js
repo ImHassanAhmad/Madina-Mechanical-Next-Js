@@ -1,11 +1,10 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Shape from "../../assets/shape.png";
-import About1 from "../../assets/About_1.png";
-import About2 from "../../assets/About_2.png";
 import Accordians from "./Acoordians";
+import styles from "./About.module.css";
 
-function AboutUs() {
+function AboutUs(props) {
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
     return {
@@ -73,7 +72,11 @@ function AboutUs() {
                   : "38vw",
             }}
           >
-            <Image src={About1} alt="hvac engineeringh image 1" />
+            <img
+              src={`http:${props.fields[0].fields.file.url}`}
+              className={styles.responsiveImg}
+              alt="hvac engineeringh image 1"
+            />
             <div
               style={{
                 position: "absolute",
@@ -91,7 +94,11 @@ function AboutUs() {
                     : "1vh",
               }}
             >
-              <Image src={About2} alt="hvac engineeringh image 2" />
+              <img
+                src={`http:${props.fields[1].fields.file.url}`}
+                className={styles.responsiveImg}
+                alt="hvac engineeringh image 2"
+              />
             </div>
           </div>
         </div>

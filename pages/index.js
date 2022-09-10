@@ -11,7 +11,29 @@ import Testimonials from "../components/Testimonials";
 import Milestone from "../components/Milestone";
 import ContactUs from "../components/Contact Us";
 import Footer from "../components/Footer";
-export default function Home() {
+import { createClient } from "contentful";
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+
+  const res = await client.getEntries({ content_type: "madinaMechanical" });
+  let apiData = res.items;
+  const res2 = await client.getEntries({ content_type: "reviews" });
+  let reviews = [{ name: "description" }];
+  res2.items.forEach((e) => reviews.push(e.fields));
+
+  return {
+    props: {
+      apiData,
+      reviews,
+    },
+  };
+}
+
+export default function Home({ apiData, reviews }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -23,12 +45,18 @@ export default function Home() {
       <main className={styles.main}>
         <Navbar />
         <Header />
-        <AboutUs />
-        <Tabs />
+        <AboutUs fields={apiData[0].fields.aboutUs} />
+        <Tabs
+          fields={{
+            Heating: apiData[0].fields.heating,
+            Ventilation: apiData[0].fields.airConditioning,
+            "Air Conditioning": apiData[0].fields.ventilation,
+          }}
+        />
         <WhyUs />
-        <Video />
-        <Services />
-        <Testimonials />
+        <Video fields={apiData[0].fields.video} />
+        <Services fields={apiData[0].fields.services} />
+        <Testimonials reviews={reviews} />
         <Milestone />
         <ContactUs />
         <Footer />

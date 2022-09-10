@@ -30,10 +30,10 @@ function Grid(props) {
       {[
         { name: "services" },
         { name: "card" },
-        { name: "a" },
-        { name: "a" },
-        { name: "a" },
-        { name: "a" },
+        { name: "a", num: 0 },
+        { name: "a", num: 1 },
+        { name: "a", num: 2 },
+        { name: "a", num: 3 },
       ].map((elm, i) => (
         <div
           key={i}
@@ -63,6 +63,11 @@ function Grid(props) {
             opacity: elm.name == "card" ? "0.8" : "1",
             borderRadius: "8.14935px",
             padding: "7%",
+            backgroundImage:
+              elm.name == "a"
+                ? `url(http:${props.fields[elm.num].fields.file.url})`
+                : "",
+            backgroundSize: "100%",
           }}
         >
           {elm.name == "services" ? (

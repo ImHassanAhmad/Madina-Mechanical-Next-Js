@@ -1,7 +1,21 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./Video.module.css";
 
-function WhyUs(props) {
+function Video(props) {
+  const videoEl = useRef(null);
+
+  const attemptPlay = () => {
+    videoEl &&
+      videoEl.current &&
+      videoEl.current.play().catch((error) => {
+        console.error("Error attempting to play", error);
+      });
+  };
+
+  useEffect(() => {
+    attemptPlay();
+  }, []);
+
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
     return {
@@ -63,17 +77,37 @@ function WhyUs(props) {
           </p>
         )}
       </div>
-      <div
+
+      {/* <iframe
         style={{
-          background: "grey",
           height:
             windowDimensions && windowDimensions.width <= 780 ? "25vh" : "50vh",
           width: "100%",
           borderRadius: "8px",
+          border: "none",
         }}
-      />
+        src={`http:${props.fields.fields.file.url}`}
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        title="Madina Mechanical Video"
+      ></iframe> */}
+
+      <video
+        style={{
+          height:
+            windowDimensions && windowDimensions.width <= 780 ? "25vh" : "50vh",
+          width: "100%",
+          borderRadius: "8px",
+          border: "none",
+        }}
+        loop
+        muted
+        ref={videoEl}
+      >
+        <source src={`http:${props.fields.fields.file.url}`} type="video/mp4" />
+      </video>
     </div>
   );
 }
 
-export default WhyUs;
+export default Video;

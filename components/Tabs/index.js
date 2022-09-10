@@ -1,27 +1,28 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import Grid from "./Grid";
 import styles from "./Tabs.module.css";
 
-function Navbar(props) {
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
+const tabs = ["Heating", "Ventilation", "Air Conditioning"];
+let tempStatus = "Heating";
 
-  const [windowDimensions, setWindowDimensions] = useState(null);
+function Navbar(props) {
   const [tab, setTab] = useState("Heating");
 
   useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
+    var refreshIntervalId = setInterval(() => {
+      let index = tabs.indexOf(tempStatus);
+      if (index == tabs.length - 1) {
+        setTab(tabs[0]);
+        tempStatus = tabs[0];
+      } else {
+        setTab(tabs[index + 1]);
+        tempStatus = tabs[index + 1];
+      }
+    }, 3000);
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      clearInterval(refreshIntervalId);
+    };
   }, []);
 
   return (
@@ -51,13 +52,16 @@ function Navbar(props) {
           gap: "5vw",
         }}
       >
-        {["Heating", "Ventilation", "Air Conditioning"].map((elm, i) => {
+        {tabs.map((elm, i) => {
           return (
             <div key={i} style={{ display: "grid", gridGap: "10px" }}>
               <p
                 className={tab == elm ? styles.tab : styles.disabledTab}
                 style={{ userSelect: "none" }}
-                onClick={() => setTab(elm)}
+                onClick={() => {
+                  setTab(elm);
+                  tempStatus = elm;
+                }}
               >
                 {elm}
               </p>
@@ -76,7 +80,7 @@ function Navbar(props) {
           );
         })}
       </div>
-      <Grid tab={tab} />
+      <Grid tab={tab} fields={props.fields} />
     </div>
   );
 }

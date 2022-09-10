@@ -25,27 +25,7 @@ function Grid(props) {
 
   return (
     <div className={styles.grid} id="testimonials">
-      {[
-        { name: "description" },
-        {
-          name: "Dwayne Butler",
-          title: "Web Designer at Airtable",
-          description:
-            "“ I am the owner of a professional renovation company and over the past 5 years we have worked with Rizwan and his team to help us get the special mechanical work done that no one else was able to do.We received professional advice, timely service to work with our schedules and most of all profession-al workmanship. Amazing team here at Madina Mechanical “",
-        },
-        {
-          name: "Mirza Nabeel Khan",
-          title: "Customer",
-          description:
-            "“  My HRV needed to be balanced and Madina Mechanical did a fabulous job. Rizwan was on time, hewas courteous and well mannered. He did the job diligently and charged me a very fair price. He also did extra work by fixing a few small things that weren’t don’t right. All in all, great service, great atti-tude and reasonable. Will definitely call again ”.",
-        },
-        {
-          name: "Syed Aziz",
-          title: "Product Manager at Zapier",
-          description:
-            "Our hot water tank broke and stopped working a day before so we were without hot water. Since the AC/furnace was also due to get replaced and was giving problems, I called a few places and got the quote for all three items such AC, furnace and water tank. Did some research of my own as well about the product I got the quote for and decided to go with Madina Me-chanical Inc. and I am glad to make that decision.Will definitely recommend Madina Mechanical Inc. for anyone who wants quality work and satisfaction.",
-        },
-      ].map((elm, i) => (
+      {props.reviews.map((elm, i) => (
         <div key={i}>
           {elm.name == "description" ? (
             <div
@@ -93,7 +73,9 @@ function Grid(props) {
                 padding: "3%",
               }}
             >
-              <p className={styles.headerCardDescription}>{elm.description}</p>
+              <p
+                className={styles.headerCardDescription}
+              >{`❝${elm.description}❞`}</p>
               <div
                 style={{
                   display: "flex",
@@ -105,12 +87,25 @@ function Grid(props) {
               >
                 <div
                   style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                     borderRadius: "50%",
                     height: "45px",
                     width: "45px",
-                    background: "grey",
+                    background: "#84c13d",
                   }}
-                />
+                >
+                  <p
+                    style={{
+                      color: "#383838",
+                      fontSize: "1.5rem",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {elm.name[0]}
+                  </p>
+                </div>
                 <div
                   style={{
                     display: "flex",
