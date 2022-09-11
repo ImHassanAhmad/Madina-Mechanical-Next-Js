@@ -54,13 +54,12 @@
 
 .snackbar {
   visibility: hidden;
-  min-width: 250px;
   margin-left: -125px;
-  background-color: #7fbe3d;
+  background: linear-gradient(180deg, #3cd250 -9%, #1b912b 109%);
   border-radius: 50px;
   color: #fff;
   text-align: center;
-  padding: 16px;
+  padding: 2vh 2vw;
   position: fixed;
   z-index: 1;
   left: 50%;

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "./ContactUs.module.css";
 import { createClient } from "contentful-management";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckToSlot } from "@fortawesome/free-solid-svg-icons";
 
 function ContactUs() {
   const [firstName, setFirstName] = useState("");
@@ -91,8 +93,22 @@ function ContactUs() {
         className={
           isActive ? [styles.snackbar, styles.show].join(" ") : styles.snackbar
         }
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "1vw",
+        }}
       >
-        Message Sent
+        <p style={{ fontSize: "1rem", fontWeight: "bold" }}>Message Sent</p>
+        <FontAwesomeIcon
+          icon={faCheckToSlot}
+          style={{
+            color: "white",
+            height: "17px",
+            width: "17px",
+          }}
+        />
       </div>
       {windowDimensions && windowDimensions.width <= 900 ? null : (
         <div

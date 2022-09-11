@@ -1,6 +1,14 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"),
+    url(../assets/fonts/Roboto/Roboto-Regular.ttf) format("woff");
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
 html {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 15px;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
 }
@@ -19,19 +27,19 @@ body {
 
 @media (max-width: 650px) {
   html {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 
 @media (max-width: 430px) {
   html {
-    font-size: 11px;
+    font-size: 10px;
   }
 }
 
 @media (max-width: 330px) {
   html {
-    font-size: 10px;
+    font-size: 9px;
   }
 }
 

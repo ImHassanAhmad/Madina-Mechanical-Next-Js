@@ -114,23 +114,40 @@ function Navbar(props) {
           }}
         >
           Madina Mechanical is Toronto’s top HVAC (heating, ventilation and air
-          conditioning) service to the GTA for over 35 years.
+          conditioning) service to the GTA for over {props.info.experience}{" "}
+          years.
         </p>
         <span style={{ display: "flex", gap: "4vw" }}>
           {[
-            { icon: Fb, alt: "madina mechanical inc logo facebook" },
-            { icon: Twitter, alt: "madina mechanical inc logo twitter" },
-            { icon: Insta, alt: "madina mechanical inc logo instagram" },
+            {
+              icon: Fb,
+              alt: "madina mechanical inc logo facebook",
+              link: "https://www.facebook.com/madina.mechanical/",
+            },
+            {
+              icon: Twitter,
+              alt: "madina mechanical inc logo twitter",
+              link: "/",
+            },
+            {
+              icon: Insta,
+              alt: "madina mechanical inc logo instagram",
+              link: "/",
+            },
           ].map((elm, i) => (
             <Image
               key={i}
               src={elm.icon}
               alt={elm.alt}
               style={{
+                cursor: "pointer",
                 transform:
                   windowDimensions && windowDimensions.width >= 580
                     ? "scale(1)"
                     : "scale(0.7)",
+              }}
+              onClick={() => {
+                window.open(elm.link, "_blank");
               }}
             />
           ))}
@@ -141,18 +158,17 @@ function Navbar(props) {
           <p className={styles.headerTitle}>Get in Touch</p>
           {[
             {
-              name: `100 McLevin Ave #212,
-            Scarborough, ON M1B 5K1`,
+              name: props.info.adress,
               icon: Map,
               alt: "madina mechanical inc logo adress",
             },
             {
-              name: "info@madinamechanical.com",
+              name: props.info.email,
               icon: Msg,
               alt: "madina mechanical inc logo email",
             },
             {
-              name: "(416) 424-4328",
+              name: props.info.phone,
               icon: Contact,
               alt: "madina mechanical inc logo phone number",
             },
@@ -228,13 +244,13 @@ function Navbar(props) {
         <div>
           <p className={styles.headerTitle}>Timings</p>
           {[
-            "Mon: 8:30a.m – 9.30p.m",
-            "Tue: 8:30a.m – 9.30p.m",
-            "Wed: 8:30a.m – 9.30p.m",
-            "Thur: 8:30a.m – 9.30p.m",
-            "Fri: 8:30a.m – 9.30p.m",
-            "Sat: 8:30a.m – 10.30p.m",
-            "Sun: 8:30a.m – 10.30p.m",
+            `Mon: ${props.info.timingMonFri}`,
+            `Tue: ${props.info.timingMonFri}`,
+            `Wed: ${props.info.timingMonFri}`,
+            `Thur: ${props.info.timingMonFri}`,
+            `Fri: ${props.info.timingMonFri}`,
+            `Sat: ${props.info.timingFriSun}`,
+            `Sun: ${props.info.timingFriSun}`,
           ].map((elm, i) => (
             <div style={{ margin: "1vh 0" }} key={i}>
               <p className={styles.headerDescription}>{elm}</p>

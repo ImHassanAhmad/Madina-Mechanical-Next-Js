@@ -3,7 +3,7 @@ import Image from "next/image";
 import Scroll from "../../assets/scroll.png";
 import styles from "./Milestone.module.css";
 
-function Navbar(props) {
+function Milestone(props) {
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
     return {
@@ -64,9 +64,9 @@ function Navbar(props) {
             }}
           >
             {[
-              { name: "Years Experience", num: "12" },
-              { name: "Work Completed", num: "375K" },
-              { name: "Client Satisfied", num: "19K" },
+              { name: "Years Experience", num: props.info.experience },
+              { name: "Work Completed", num: props.info.work },
+              { name: "Client Satisfied", num: props.info.clients },
             ].map((elm, i) => (
               <div key={i}>
                 <p className={styles.number}>{elm.num}</p>
@@ -143,4 +143,4 @@ function Navbar(props) {
   );
 }
 
-export default Navbar;
+export default Milestone;

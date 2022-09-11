@@ -38,8 +38,9 @@ function Grid(props) {
         padding: "0 5vw",
       }}
     >
-      {["Heating", "Ventilation", "Air Conditioning"].map((e) => (
+      {["Heating", "Ventilation", "Air Conditioning"].map((e, i) => (
         <div
+          key={i}
           style={{
             height: "100%",
             backgroundImage: `url(http:${
@@ -119,8 +120,9 @@ function Grid(props) {
               <FontAwesomeIcon icon={faArrowRight} style={{ color: "white" }} />
             </a>
           </div>
-          {["Heating", "Ventilation", "Air Conditioning"].map((e) => (
+          {["Heating", "Ventilation", "Air Conditioning"].map((e, i) => (
             <div
+              key={i}
               style={{
                 height: "100%",
                 backgroundImage: `url(http:${
@@ -134,8 +136,9 @@ function Grid(props) {
             />
           ))}
         </div>
-        {["Heating", "Ventilation", "Air Conditioning"].map((e) => (
+        {["Heating", "Ventilation", "Air Conditioning"].map((e, i) => (
           <div
+            key={i}
             style={{
               height: "50%",
               backgroundImage: `url(http:${

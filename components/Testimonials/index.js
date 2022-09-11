@@ -93,7 +93,8 @@ function Grid(props) {
                     borderRadius: "50%",
                     height: "45px",
                     width: "45px",
-                    background: "#84c13d",
+                    background:
+                      "linear-gradient(180deg, #3cd250 -9%, #1b912b 109%)",
                   }}
                 >
                   <p

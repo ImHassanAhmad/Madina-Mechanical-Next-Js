@@ -20,20 +20,23 @@ export async function getStaticProps() {
   });
 
   const res = await client.getEntries({ content_type: "madinaMechanical" });
-  let apiData = res.items;
+  let apiData = res.items[0].fields;
   const res2 = await client.getEntries({ content_type: "reviews" });
   let reviews = [{ name: "description" }];
   res2.items.forEach((e) => reviews.push(e.fields));
+  const res3 = await client.getEntries({ content_type: "info" });
+  let info = res3.items[0].fields;
 
   return {
     props: {
       apiData,
       reviews,
+      info,
     },
   };
 }
 
-export default function Home({ apiData, reviews }) {
+export default function Home({ apiData, reviews, info }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -45,21 +48,21 @@ export default function Home({ apiData, reviews }) {
       <main className={styles.main}>
         <Navbar />
         <Header />
-        <AboutUs fields={apiData[0].fields.aboutUs} />
+        <AboutUs fields={apiData.aboutUs} />
         <Tabs
           fields={{
-            Heating: apiData[0].fields.heating,
-            Ventilation: apiData[0].fields.airConditioning,
-            "Air Conditioning": apiData[0].fields.ventilation,
+            Heating: apiData.heating,
+            Ventilation: apiData.airConditioning,
+            "Air Conditioning": apiData.ventilation,
           }}
         />
         <WhyUs />
-        <Video fields={apiData[0].fields.video} />
-        <Services fields={apiData[0].fields.services} />
+        <Video fields={apiData.video} />
+        <Services fields={apiData.services} />
         <Testimonials reviews={reviews} />
-        <Milestone />
+        <Milestone info={info} />
         <ContactUs />
-        <Footer />
+        <Footer info={info} />
       </main>
     </div>
   );
