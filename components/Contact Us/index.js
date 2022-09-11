@@ -1,13 +1,53 @@
-import { useState, useEffect, Fragment } from "react";
-import Image from "next/image";
-import Why1 from "../../assets/why1.png";
-import Why2 from "../../assets/why2.png";
-import Why3 from "../../assets/why3.png";
-import Why4 from "../../assets/why4.png";
-import Why5 from "../../assets/why5.png";
+import { useState, useEffect } from "react";
 import styles from "./ContactUs.module.css";
+import { createClient } from "contentful-management";
 
 function ContactUs() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isActive, setIsActive] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  function showNoti() {
+    setIsActive(true);
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setMessage("");
+    setLoading(false);
+    setTimeout(() => {
+      setIsActive(false);
+    }, 3000);
+  }
+
+  function sendMessage(e) {
+    if (!loading) {
+      e.preventDefault();
+      setLoading(true);
+      const client = createClient({
+        accessToken: "CFPAT-fZlTwU6-C7USJjKu4obEQDohomO3txIGNjDAOnBLT38",
+      });
+
+      client
+        .getSpace("ekq2l24qwz6g")
+        .then((space) => space.getEnvironment("master"))
+        .then((environment) =>
+          environment.createEntry("messages", {
+            fields: {
+              firstName: { "en-US": firstName },
+              lastName: { "en-US": lastName },
+              email: { "en-US": email },
+              message: { "en-US": message },
+            },
+          })
+        )
+        .then(() => showNoti())
+        .catch(console.error);
+    }
+  }
+
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
     return {
@@ -47,6 +87,13 @@ function ContactUs() {
         position: "relative",
       }}
     >
+      <div
+        className={
+          isActive ? [styles.snackbar, styles.show].join(" ") : styles.snackbar
+        }
+      >
+        Message Sent
+      </div>
       {windowDimensions && windowDimensions.width <= 900 ? null : (
         <div
           style={{
@@ -113,6 +160,8 @@ function ContactUs() {
               id="fname"
               name="firstname"
               placeholder="Enter your first name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
           </span>
           <span
@@ -127,6 +176,8 @@ function ContactUs() {
               id="lname"
               name="lasttname"
               placeholder="Enter your last name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
             />
           </span>
         </div>
@@ -138,6 +189,8 @@ function ContactUs() {
             id="email"
             name="email"
             placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </span>
         <span>
@@ -149,6 +202,8 @@ function ContactUs() {
             id="email"
             name="email"
             placeholder="Enter your message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
         </span>
         <button
@@ -165,8 +220,9 @@ function ContactUs() {
               "linear-gradient(97.54deg, #2EA83F 38.07%, #2EC743 93.63%)",
             borderRadius: "6px",
             border: "none",
-            cursor: "pointer",
+            cursor: loading ? "" : "pointer",
           }}
+          onClick={sendMessage}
         >
           <p
             style={{
@@ -176,7 +232,7 @@ function ContactUs() {
               color: "white",
             }}
           >
-            Send Message
+            {loading ? "Sending Message..." : "Send Message"}
           </p>
         </button>
       </form>

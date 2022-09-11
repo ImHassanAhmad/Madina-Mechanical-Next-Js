@@ -38,17 +38,21 @@ function Grid(props) {
         padding: "0 5vw",
       }}
     >
-      <div
-        style={{
-          height: "100%",
-          backgroundImage: `url(http:${
-            props.fields[props.tab][0].fields.file.url
-          })`,
-          backgroundSize: "100%",
-          width: "40%",
-          borderRadius: "8.14935px",
-        }}
-      />
+      {["Heating", "Ventilation", "Air Conditioning"].map((e) => (
+        <div
+          style={{
+            height: "100%",
+            backgroundImage: `url(http:${
+              props.fields[props.tab][0].fields.file.url
+            })`,
+            backgroundSize: "100%",
+            width: "40%",
+            borderRadius: "8.14935px",
+            display: props.tab == e ? "block" : "none",
+          }}
+        />
+      ))}
+
       <div
         style={{
           height: "100%",
@@ -115,29 +119,35 @@ function Grid(props) {
               <FontAwesomeIcon icon={faArrowRight} style={{ color: "white" }} />
             </a>
           </div>
+          {["Heating", "Ventilation", "Air Conditioning"].map((e) => (
+            <div
+              style={{
+                height: "100%",
+                backgroundImage: `url(http:${
+                  props.fields[props.tab][2].fields.file.url
+                })`,
+                backgroundSize: "100%",
+                width: "30vw",
+                borderRadius: "8.14935px",
+                display: props.tab == e ? "block" : "none",
+              }}
+            />
+          ))}
+        </div>
+        {["Heating", "Ventilation", "Air Conditioning"].map((e) => (
           <div
             style={{
-              height: "100%",
+              height: "50%",
               backgroundImage: `url(http:${
-                props.fields[props.tab][2].fields.file.url
+                props.fields[props.tab][1].fields.file.url
               })`,
               backgroundSize: "100%",
-              width: "30vw",
+              width: "100%",
               borderRadius: "8.14935px",
+              display: props.tab == e ? "block" : "none",
             }}
           />
-        </div>
-        <div
-          style={{
-            height: "50%",
-            backgroundImage: `url(http:${
-              props.fields[props.tab][1].fields.file.url
-            })`,
-            backgroundSize: "100%",
-            width: "100%",
-            borderRadius: "8.14935px",
-          }}
-        />
+        ))}
       </div>
     </div>
   );
