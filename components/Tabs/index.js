@@ -5,11 +5,13 @@ import styles from "./Tabs.module.css";
 const tabs = ["Heating", "Ventilation", "Air Conditioning"];
 let tempStatus = "Heating";
 
+let refreshIntervalId;
+
 function Navbar(props) {
   const [tab, setTab] = useState("Heating");
 
-  useEffect(() => {
-    var refreshIntervalId = setInterval(() => {
+  function IntializeTimer() {
+    refreshIntervalId = setInterval(() => {
       let index = tabs.indexOf(tempStatus);
       if (index == tabs.length - 1) {
         setTab(tabs[0]);
@@ -19,6 +21,10 @@ function Navbar(props) {
         tempStatus = tabs[index + 1];
       }
     }, 3000);
+  }
+
+  useEffect(() => {
+    IntializeTimer();
 
     return () => {
       clearInterval(refreshIntervalId);
@@ -61,6 +67,8 @@ function Navbar(props) {
                 onClick={() => {
                   setTab(elm);
                   tempStatus = elm;
+                  clearInterval(refreshIntervalId);
+                  IntializeTimer();
                 }}
               >
                 {elm}

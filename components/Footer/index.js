@@ -80,7 +80,7 @@ function Navbar(props) {
                 alignItems: "center",
                 justifyContent: "center",
               }
-            : {}
+            : { maxWidth: "20vw" }
         }
       >
         <Image

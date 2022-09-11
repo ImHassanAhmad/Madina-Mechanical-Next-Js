@@ -1,6 +1,4 @@
-import { useState, useEffect, Fragment } from "react";
 import Image from "next/image";
-import Scroll from "../../assets/scroll.png";
 import styles from "./Header.module.css";
 
 function Navbar(props) {
@@ -104,17 +102,6 @@ function Navbar(props) {
           );
         })}
       </div>
-      {props.windowDimensions && props.windowDimensions.width >= 580 ? (
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            bottom: "22px",
-          }}
-        >
-          <Image src={Scroll} height="30px" width="20px" alt="mouse scroll" />
-        </div>
-      ) : null}
     </div>
   );
 }

@@ -1,6 +1,3 @@
-import { useState, useEffect, Fragment } from "react";
-import Image from "next/image";
-import Scroll from "../../assets/scroll.png";
 import styles from "./Milestone.module.css";
 
 function Milestone(props) {

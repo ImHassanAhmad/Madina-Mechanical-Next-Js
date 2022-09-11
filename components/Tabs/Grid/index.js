@@ -46,7 +46,7 @@ function Grid(props) {
             backgroundImage: `url(http:${
               props.fields[props.tab][0].fields.file.url
             })`,
-            backgroundSize: "100%",
+            backgroundSize: "cover",
             width: "40%",
             borderRadius: "8.14935px",
             display: props.tab == e ? "block" : "none",
@@ -128,7 +128,7 @@ function Grid(props) {
                 backgroundImage: `url(http:${
                   props.fields[props.tab][2].fields.file.url
                 })`,
-                backgroundSize: "100%",
+                backgroundSize: "cover",
                 width: "30vw",
                 borderRadius: "8.14935px",
                 display: props.tab == e ? "block" : "none",
@@ -144,7 +144,7 @@ function Grid(props) {
               backgroundImage: `url(http:${
                 props.fields[props.tab][1].fields.file.url
               })`,
-              backgroundSize: "100%",
+              backgroundSize: "cover",
               width: "100%",
               borderRadius: "8.14935px",
               display: props.tab == e ? "block" : "none",
