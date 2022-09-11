@@ -5,26 +5,6 @@ import Accordians from "./Acoordians";
 import styles from "./About.module.css";
 
 function AboutUs(props) {
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div
       id="aboutUs"
@@ -34,7 +14,9 @@ function AboutUs(props) {
         display: "flex",
         gap: "1vh",
         flexDirection:
-          windowDimensions && windowDimensions.width <= 780 ? "column" : "row",
+          props.windowDimensions && props.windowDimensions.width <= 780
+            ? "column"
+            : "row",
         justifyContent: "space-between",
       }}
     >
@@ -57,7 +39,7 @@ function AboutUs(props) {
           style={{
             position: "absolute",
             left:
-              windowDimensions && windowDimensions.width <= 780
+              props.windowDimensions && props.windowDimensions.width <= 780
                 ? "12vw"
                 : "3vw",
             top: "5vh",
@@ -67,7 +49,7 @@ function AboutUs(props) {
             style={{
               position: "relative",
               width:
-                windowDimensions && windowDimensions.width <= 780
+                props.windowDimensions && props.windowDimensions.width <= 780
                   ? "60vw"
                   : "38vw",
             }}
@@ -81,15 +63,16 @@ function AboutUs(props) {
               style={{
                 position: "absolute",
                 width:
-                  windowDimensions && windowDimensions.width <= 780
+                  props.windowDimensions && props.windowDimensions.width <= 780
                     ? "50vw"
                     : "30vw",
                 height: "15vh",
                 left: "55%",
                 bottom:
-                  windowDimensions && windowDimensions.width < 520
+                  props.windowDimensions && props.windowDimensions.width < 520
                     ? "0"
-                    : windowDimensions && windowDimensions.width <= 780
+                    : props.windowDimensions &&
+                      props.windowDimensions.width <= 780
                     ? "10vh"
                     : "1vh",
               }}
@@ -110,7 +93,7 @@ function AboutUs(props) {
           justifyContent: "center",
         }}
       >
-        <Accordians windowDimensions={windowDimensions} />
+        <Accordians windowDimensions={props.windowDimensions} />
       </div>
     </div>
   );

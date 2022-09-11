@@ -80,8 +80,16 @@ function Accordians(props) {
                   }}
                   style={{
                     color: "#333333",
-                    height: "17px",
-                    width: "17px",
+                    height:
+                      props.windowDimensions &&
+                      props.windowDimensions.width >= 580
+                        ? "17px"
+                        : "13px",
+                    width:
+                      props.windowDimensions &&
+                      props.windowDimensions.width >= 580
+                        ? "17px"
+                        : "13px",
                     marginRight: "25px",
                     cursor: "pointer",
                     transition: "0.5s",

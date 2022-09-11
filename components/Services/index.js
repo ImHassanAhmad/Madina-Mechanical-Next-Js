@@ -4,27 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Grid(props) {
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
-  const [tab, setTab] = useState("Heating");
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div className={styles.grid} id="services">
       {[
@@ -43,13 +22,13 @@ function Grid(props) {
             flexDirection: "column",
             gap: "2vh",
             alignItems:
-              windowDimensions && windowDimensions.width <= 720
+              props.windowDimensions && props.windowDimensions.width <= 720
                 ? "center"
                 : "flex-start",
             justifyContent: "center",
             height:
-              (windowDimensions &&
-                windowDimensions.width <= 720 &&
+              (props.windowDimensions &&
+                props.windowDimensions.width <= 720 &&
                 elm.name == "services") ||
               elm.name == "card"
                 ? "auto"

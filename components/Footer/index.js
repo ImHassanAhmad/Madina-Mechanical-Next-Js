@@ -10,26 +10,6 @@ import Msg from "../../assets/msg.png";
 import Map from "../../assets/map.png";
 
 function Navbar(props) {
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div
       style={{
@@ -39,15 +19,20 @@ function Navbar(props) {
         background: "#383838",
         display: "flex",
         flexDirection:
-          windowDimensions && windowDimensions.width <= 900 ? "column" : "row",
-        gap: windowDimensions && windowDimensions.width <= 900 ? "5vh" : "2vw",
+          props.windowDimensions && props.windowDimensions.width <= 900
+            ? "column"
+            : "row",
+        gap:
+          props.windowDimensions && props.windowDimensions.width <= 900
+            ? "5vh"
+            : "2vw",
         justifyContent: "space-between",
         position: "relative",
         marginTop: "10vh",
         padding: "5vh 3vw",
       }}
     >
-      {windowDimensions && windowDimensions.width > 900 ? null : (
+      {props.windowDimensions && props.windowDimensions.width > 900 ? null : (
         <div
           style={{
             position: "absolute",
@@ -88,7 +73,7 @@ function Navbar(props) {
       )}
       <div
         style={
-          windowDimensions && windowDimensions.width <= 900
+          props.windowDimensions && props.windowDimensions.width <= 900
             ? {
                 display: "flex",
                 flexDirection: "column",
@@ -110,7 +95,9 @@ function Navbar(props) {
           style={{
             margin: "3vh 0",
             textAlign:
-              windowDimensions && windowDimensions.width <= 900 ? "center" : "",
+              props.windowDimensions && props.windowDimensions.width <= 900
+                ? "center"
+                : "",
           }}
         >
           Madina Mechanical is Toronto’s top HVAC (heating, ventilation and air
@@ -142,7 +129,7 @@ function Navbar(props) {
               style={{
                 cursor: "pointer",
                 transform:
-                  windowDimensions && windowDimensions.width >= 580
+                  props.windowDimensions && props.windowDimensions.width >= 580
                     ? "scale(1)"
                     : "scale(0.7)",
               }}
@@ -186,7 +173,8 @@ function Navbar(props) {
                 style={{
                   minWidth: "20px",
                   transform:
-                    windowDimensions && windowDimensions.width >= 580
+                    props.windowDimensions &&
+                    props.windowDimensions.width >= 580
                       ? "scale(1)"
                       : "scale(0.6)",
                 }}

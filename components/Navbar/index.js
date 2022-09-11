@@ -5,31 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Navbar.module.css";
 
-function Navbar() {
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
+function Navbar(props) {
   const [visible, setVisible] = useState("home");
   const [menu, setMenu] = useState(false);
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-    window.addEventListener("scroll", chkVisible);
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("scroll", chkVisible);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   function chkVisible() {
     [
@@ -55,17 +33,26 @@ function Navbar() {
     });
   }
 
+  useEffect(() => {
+    window.addEventListener("scroll", chkVisible);
+    return () => {
+      window.removeEventListener("scroll", chkVisible);
+    };
+  }, []);
+
   return (
     <Fragment>
       <div
         style={{
           position:
-            windowDimensions && windowDimensions.width >= 580
+            props.windowDimensions && props.windowDimensions.width >= 580
               ? "fixed"
               : "absolute",
           width: "100%",
           height:
-            windowDimensions && windowDimensions.width >= 580 ? "80px" : "55px",
+            props.windowDimensions && props.windowDimensions.width >= 580
+              ? "80px"
+              : "55px",
           left: "0px",
           top: "0px",
           background: "rgba(56, 56, 56, 0.6)",
@@ -80,13 +67,17 @@ function Navbar() {
           alt="madina mechanical inc logo"
           src={Logo}
           height={
-            windowDimensions && windowDimensions.width >= 580 ? "58px" : "39px"
+            props.windowDimensions && props.windowDimensions.width >= 580
+              ? "58px"
+              : "39px"
           }
           width={
-            windowDimensions && windowDimensions.width >= 580 ? "120px" : "81px"
+            props.windowDimensions && props.windowDimensions.width >= 580
+              ? "120px"
+              : "81px"
           }
         />
-        {windowDimensions && windowDimensions.width >= 580 ? (
+        {props.windowDimensions && props.windowDimensions.width >= 580 ? (
           <div
             style={{
               display: "flex",
@@ -136,7 +127,7 @@ function Navbar() {
           />
         )}
       </div>
-      {windowDimensions && windowDimensions.width < 580 ? (
+      {props.windowDimensions && props.windowDimensions.width < 580 ? (
         <div
           className={styles.menu}
           style={{

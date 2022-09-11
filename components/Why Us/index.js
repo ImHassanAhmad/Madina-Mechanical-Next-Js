@@ -1,4 +1,3 @@
-import { useState, useEffect, Fragment } from "react";
 import Image from "next/image";
 import Why1 from "../../assets/why1.png";
 import Why2 from "../../assets/why2.png";
@@ -9,26 +8,6 @@ import Why6 from "../../assets/why6.png";
 import styles from "./WhyUs.module.css";
 
 function WhyUs(props) {
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div
       style={{
@@ -39,9 +18,14 @@ function WhyUs(props) {
         background: "#f7fdf8",
         display: "flex",
         flexDirection:
-          windowDimensions && windowDimensions.width <= 780 ? "column" : "row",
+          props.windowDimensions && props.windowDimensions.width <= 780
+            ? "column"
+            : "row",
         alignItems: "center",
-        gap: windowDimensions && windowDimensions.width <= 780 ? "5vh" : "4vw",
+        gap:
+          props.windowDimensions && props.windowDimensions.width <= 780
+            ? "5vh"
+            : "4vw",
         justifyContent: "space-between",
         position: "relative",
       }}
@@ -53,7 +37,7 @@ function WhyUs(props) {
           gap: "3vh",
           justifyContent: "center",
           alignItems:
-            windowDimensions && windowDimensions.width <= 780
+            props.windowDimensions && props.windowDimensions.width <= 780
               ? "center"
               : "flex-start",
         }}
@@ -109,12 +93,12 @@ function WhyUs(props) {
               src={elm.img}
               alt={elm.des}
               height={
-                windowDimensions && windowDimensions.width >= 580
+                props.windowDimensions && props.windowDimensions.width >= 580
                   ? "24px"
                   : "14px"
               }
               width={
-                windowDimensions && windowDimensions.width >= 580
+                props.windowDimensions && props.windowDimensions.width >= 580
                   ? "24px"
                   : "14px"
               }

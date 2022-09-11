@@ -4,7 +4,7 @@ import { createClient } from "contentful-management";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckToSlot } from "@fortawesome/free-solid-svg-icons";
 
-function ContactUs() {
+function ContactUs(props) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -50,26 +50,6 @@ function ContactUs() {
     }
   }
 
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div
       id="contactUs"
@@ -80,11 +60,14 @@ function ContactUs() {
         padding: "1vh 8vw",
         display: "flex",
         flexDirection:
-          windowDimensions && windowDimensions.width <= 900
+          props.windowDimensions && props.windowDimensions.width <= 900
             ? "column-reverse"
             : "row",
         alignItems: "center",
-        gap: windowDimensions && windowDimensions.width <= 900 ? "6vh" : "5vw",
+        gap:
+          props.windowDimensions && props.windowDimensions.width <= 900
+            ? "6vh"
+            : "5vw",
         justifyContent: "space-between",
         position: "relative",
       }}
@@ -110,7 +93,7 @@ function ContactUs() {
           }}
         />
       </div>
-      {windowDimensions && windowDimensions.width <= 900 ? null : (
+      {props.windowDimensions && props.windowDimensions.width <= 900 ? null : (
         <div
           style={{
             position: "absolute",
@@ -153,7 +136,9 @@ function ContactUs() {
       <form
         style={{
           width:
-            windowDimensions && windowDimensions.width <= 900 ? "100%" : "40vw",
+            props.windowDimensions && props.windowDimensions.width <= 900
+              ? "100%"
+              : "40vw",
         }}
       >
         <p className={styles.headerTitle}>Contact Us</p>
@@ -257,7 +242,9 @@ function ContactUs() {
         style={{
           border: 0,
           width:
-            windowDimensions && windowDimensions.width <= 900 ? "100%" : "40vw",
+            props.windowDimensions && props.windowDimensions.width <= 900
+              ? "100%"
+              : "40vw",
           height: "40vh",
           borderRadius: "8px",
           alignSelf: "center",

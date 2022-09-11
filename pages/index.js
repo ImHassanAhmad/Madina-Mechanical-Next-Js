@@ -1,3 +1,4 @@
+import { useState, useEffect, Fragment } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
@@ -37,6 +38,27 @@ export async function getStaticProps() {
 }
 
 export default function Home({ apiData, reviews, info }) {
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height,
+    };
+  }
+
+  const [windowDimensions, setWindowDimensions] = useState(null);
+
+  useEffect(() => {
+    handleResize();
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -46,9 +68,9 @@ export default function Home({ apiData, reviews, info }) {
       </Head>
 
       <main className={styles.main}>
-        <Navbar />
-        <Header />
-        <AboutUs fields={apiData.aboutUs} />
+        <Navbar windowDimensions={windowDimensions} />
+        <Header fields={apiData.header} windowDimensions={windowDimensions} />
+        <AboutUs fields={apiData.aboutUs} windowDimensions={windowDimensions} />
         <Tabs
           fields={{
             Heating: apiData.heating,
@@ -56,16 +78,17 @@ export default function Home({ apiData, reviews, info }) {
             "Air Conditioning": apiData.ventilation,
           }}
         />
-        <WhyUs />
+        <WhyUs windowDimensions={windowDimensions} />
         <Video fields={apiData.video} />
-        <Services fields={apiData.services} />
-        <Testimonials reviews={reviews} />
+        <Services
+          fields={apiData.services}
+          windowDimensions={windowDimensions}
+        />
+        <Testimonials reviews={reviews} windowDimensions={windowDimensions} />
         <Milestone info={info} />
-        <ContactUs />
-        <Footer info={info} />
+        <ContactUs windowDimensions={windowDimensions} />
+        <Footer info={info} windowDimensions={windowDimensions} />
       </main>
     </div>
   );
 }
-
-//check 2

@@ -1,28 +1,6 @@
-import { useState, useEffect, Fragment } from "react";
 import styles from "./Testiminials.module.css";
 
 function Grid(props) {
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
-  const [tab, setTab] = useState("Heating");
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div className={styles.grid} id="testimonials">
       {props.reviews.map((elm, i) => (
@@ -33,7 +11,7 @@ function Grid(props) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems:
-                  windowDimensions && windowDimensions.width <= 720
+                  props.windowDimensions && props.windowDimensions.width <= 720
                     ? "center"
                     : "flex-start",
                 height: "auto",
@@ -54,7 +32,9 @@ function Grid(props) {
               style={{
                 position: "relative",
                 bottom:
-                  windowDimensions && windowDimensions.width > 950 && i == 2
+                  props.windowDimensions &&
+                  props.windowDimensions.width > 950 &&
+                  i == 2
                     ? "25%"
                     : "",
                 display: "flex",
@@ -62,7 +42,7 @@ function Grid(props) {
                 gap: "3vh",
                 // justifyContent: "space-between",
                 alignItems:
-                  windowDimensions && windowDimensions.width <= 720
+                  props.windowDimensions && props.windowDimensions.width <= 720
                     ? "center"
                     : "flex-start",
                 height: "auto",

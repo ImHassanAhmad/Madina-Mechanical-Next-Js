@@ -4,26 +4,6 @@ import Scroll from "../../assets/scroll.png";
 import styles from "./Header.module.css";
 
 function Navbar(props) {
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div
       id="home"
@@ -35,7 +15,9 @@ function Navbar(props) {
           props.windowDimensions && props.windowDimensions.width <= 780
             ? "100%"
             : "40vh",
-        background: "#4F4F4F",
+        backgroundImage: `linear-gradient(to bottom, rgb(112,112,112,0.85), rgb(56,56,56,0.95)),
+        url(http:${props.fields.fields.file.url})`,
+        backgroundSize: "cover",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -122,7 +104,7 @@ function Navbar(props) {
           );
         })}
       </div>
-      {windowDimensions && windowDimensions.width >= 580 ? (
+      {props.windowDimensions && props.windowDimensions.width >= 580 ? (
         <div
           style={{
             position: "absolute",
