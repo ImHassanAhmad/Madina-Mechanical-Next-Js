@@ -67,3 +67,5 @@ export default function Home({ apiData, reviews, info }) {
     </div>
   );
 }
+
+//check 2
