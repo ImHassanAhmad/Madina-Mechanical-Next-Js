@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./Video.module.css";
 
 function Video(props) {
@@ -14,26 +14,6 @@ function Video(props) {
 
   useEffect(() => {
     attemptPlay();
-  }, []);
-
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -54,14 +34,16 @@ function Video(props) {
           height: "100%",
           display: "flex",
           flexDirection:
-            windowDimensions && windowDimensions.width <= 780
+            props.windowDimensions && props.windowDimensions.width <= 780
               ? "column"
               : "row",
           alignItems: "center",
           gap:
-            windowDimensions && windowDimensions.width <= 780 ? "10vh" : "5vw",
+            props.windowDimensions && props.windowDimensions.width <= 780
+              ? "10vh"
+              : "5vw",
           justifyContent:
-            windowDimensions && windowDimensions.width <= 780
+            props.windowDimensions && props.windowDimensions.width <= 780
               ? "center"
               : "space-between",
           position: "relative",
@@ -70,7 +52,8 @@ function Video(props) {
         <p className={styles.headerTitle}>
           Why Madina Mechanical Is The Best Choice?
         </p>
-        {windowDimensions && windowDimensions.width <= 780 ? null : (
+        {props.windowDimensions &&
+        props.windowDimensions.width <= 780 ? null : (
           <p style={{ color: "rgba(56, 56, 56, 0.8)" }}>
             Watch this one minute video so you understand why you should use our
             services!
@@ -81,7 +64,7 @@ function Video(props) {
       {/* <iframe
         style={{
           height:
-            windowDimensions && windowDimensions.width <= 780 ? "25vh" : "50vh",
+            props.windowDimensions && props.windowDimensions.width <= 780 ? "25vh" : "50vh",
           width: "100%",
           borderRadius: "8px",
           border: "none",
@@ -95,7 +78,9 @@ function Video(props) {
       <video
         style={{
           height:
-            windowDimensions && windowDimensions.width <= 780 ? "25vh" : "50vh",
+            props.windowDimensions && props.windowDimensions.width <= 780
+              ? "25vh"
+              : "50vh",
           width: "100%",
           borderRadius: "8px",
           border: "none",

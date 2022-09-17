@@ -7,7 +7,7 @@ function Accordians(props) {
   const [isShowing, setIsShowing] = useState("Our motto");
 
   useEffect(() => {
-    var panel = document.getElementById(`accordian0`);
+    var panel = document.getElementById("accordian0");
     panel.style.maxHeight = panel.scrollHeight + "px";
   }, []);
 

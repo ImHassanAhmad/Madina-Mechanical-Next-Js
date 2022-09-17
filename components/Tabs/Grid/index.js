@@ -1,35 +1,18 @@
-import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Grid(props) {
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  const [windowDimensions, setWindowDimensions] = useState(null);
-
-  useEffect(() => {
-    handleResize();
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div
       style={{
         height:
-          windowDimensions && windowDimensions.width > 780 ? "50vh" : "35vh",
+          props.windowDimensions && props.windowDimensions.width > 780
+            ? "50vh"
+            : "35vh",
         minHeight:
-          windowDimensions && windowDimensions.width > 780 ? "300px" : "300px",
+          props.windowDimensions && props.windowDimensions.width > 780
+            ? "300px"
+            : "300px",
         width: "100%",
         display: "flex",
         justifyContent: "center",
@@ -92,9 +75,10 @@ function Grid(props) {
               style={{
                 color: "white",
                 fontSize:
-                  windowDimensions && windowDimensions.width > 780
+                  props.windowDimensions && props.windowDimensions.width > 780
                     ? "13px"
-                    : windowDimensions && windowDimensions.width > 450
+                    : props.windowDimensions &&
+                      props.windowDimensions.width > 450
                     ? "10px"
                     : "7px",
               }}

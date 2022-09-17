@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./ContactUs.module.css";
 import { createClient } from "contentful-management";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

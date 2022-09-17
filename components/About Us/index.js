@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Shape from "../../assets/shape.png";
 import Accordians from "./Acoordians";

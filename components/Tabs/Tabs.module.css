@@ -8,7 +8,7 @@
   text-fill-color: transparent;
   opacity: 0.8;
   cursor: pointer;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .disabledTab {
@@ -21,7 +21,7 @@
   background-clip: text;
   text-fill-color: transparent;
   cursor: pointer;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .headerTitle {

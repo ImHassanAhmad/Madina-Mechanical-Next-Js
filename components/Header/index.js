@@ -23,11 +23,24 @@ function Navbar(props) {
         position: "relative",
       }}
     >
-      <p className={styles.headerTitle}>Heating Ventilation Air Conditioning</p>
-      <p className={styles.headerDescription}>
-        We provide Durable, Qualitative & Long Lasting Solution With Twenty
-        years of Customer Trust Call us at 416 -424 - Heat (4328)
-      </p>
+      <span
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "relative",
+          marginTop: "40px",
+        }}
+      >
+        <p className={styles.headerTitle}>
+          Heating Ventilation Air Conditioning
+        </p>
+        <p className={styles.headerDescription}>
+          We provide Durable, Qualitative & Long Lasting Solution With Twenty
+          years of Customer Trust Call us at 416 -424 - Heat (4328)
+        </p>
+      </span>
       <div
         style={{
           position: "absolute",

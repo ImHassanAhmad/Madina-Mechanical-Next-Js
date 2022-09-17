@@ -20,7 +20,7 @@ function Navbar(props) {
         setTab(tabs[index + 1]);
         tempStatus = tabs[index + 1];
       }
-    }, 3000);
+    }, 5000);
   }
 
   useEffect(() => {
@@ -88,7 +88,11 @@ function Navbar(props) {
           );
         })}
       </div>
-      <Grid tab={tab} fields={props.fields} />
+      <Grid
+        tab={tab}
+        fields={props.fields}
+        windowDimensions={props.windowDimensions}
+      />
     </div>
   );
 }

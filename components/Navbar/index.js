@@ -52,7 +52,7 @@ function Navbar(props) {
           height:
             props.windowDimensions && props.windowDimensions.width >= 580
               ? "80px"
-              : "55px",
+              : "40px",
           left: "0px",
           top: "0px",
           background: "rgba(56, 56, 56, 0.6)",
@@ -69,12 +69,12 @@ function Navbar(props) {
           height={
             props.windowDimensions && props.windowDimensions.width >= 580
               ? "58px"
-              : "39px"
+              : "25px"
           }
           width={
             props.windowDimensions && props.windowDimensions.width >= 580
               ? "120px"
-              : "81px"
+              : "55px"
           }
         />
         {props.windowDimensions && props.windowDimensions.width >= 580 ? (
@@ -133,7 +133,7 @@ function Navbar(props) {
           style={{
             position: "absolute",
             right: "0",
-            top: "55px",
+            top: "40px",
             zIndex: "2",
             borderRadius: "0 0 0 10px",
             background: "#424242",

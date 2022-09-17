@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from "react";
+import { Fragment } from "react";
 import styles from "./Services.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";

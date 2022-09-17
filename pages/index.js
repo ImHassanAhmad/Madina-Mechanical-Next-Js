@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
@@ -77,9 +77,10 @@ export default function Home({ apiData, reviews, info }) {
             Ventilation: apiData.airConditioning,
             "Air Conditioning": apiData.ventilation,
           }}
+          windowDimensions={windowDimensions}
         />
         <WhyUs windowDimensions={windowDimensions} />
-        <Video fields={apiData.video} />
+        <Video fields={apiData.video} windowDimensions={windowDimensions} />
         <Services
           fields={apiData.services}
           windowDimensions={windowDimensions}

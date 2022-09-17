@@ -1,4 +1,3 @@
-import { useState, useEffect, Fragment } from "react";
 import Image from "next/image";
 import styles from "./Footer.module.css";
 import Logo from "../../assets/logo.png";
