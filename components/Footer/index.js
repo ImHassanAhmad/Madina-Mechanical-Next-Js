@@ -121,7 +121,7 @@ function Navbar(props) {
               link: "https://www.instagram.com/madinamechanical/",
             },
           ].map((elm, i) => (
-            <a href={elm.link} target="_blank">
+            <a key={i} href={elm.link} target="_blank" rel="noreferrer">
               <Image
                 key={i}
                 src={elm.icon}
@@ -172,6 +172,7 @@ function Navbar(props) {
               key={i}
               href={elm.link}
               target="_blank"
+              rel="noreferrer"
             >
               <span
                 style={{
