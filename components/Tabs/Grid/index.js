@@ -7,8 +7,8 @@ function Grid(props) {
       style={{
         height:
           props.windowDimensions && props.windowDimensions.width > 780
-            ? "50vh"
-            : "35vh",
+            ? "70vh"
+            : "30vh",
         minHeight:
           props.windowDimensions && props.windowDimensions.width > 780
             ? "300px"
@@ -57,11 +57,10 @@ function Grid(props) {
         >
           <div
             style={{
-              position: "relative",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              padding: "3vw",
+              padding: "0 3vw",
               height: "100%",
               background: "linear-gradient(180deg, #3CD250 -9%, #1B912B 109%)",
               opacity: "0.8",
@@ -70,7 +69,7 @@ function Grid(props) {
               gap: "1vh",
             }}
           >
-            <p style={{ color: "white", fontWeight: "bold" }}>{props.tab}</p>
+            <p style={{ color: "white", fontWeight: "600" }}>{props.tab}</p>
             <p
               style={{
                 color: "white",
@@ -79,7 +78,7 @@ function Grid(props) {
                     ? "13px"
                     : props.windowDimensions &&
                       props.windowDimensions.width > 450
-                    ? "10px"
+                    ? "9px"
                     : "7px",
               }}
             >
@@ -89,13 +88,9 @@ function Grid(props) {
             <a
               href="#contactUs"
               style={{
-                position: "absolute",
-                bottom: "2vh",
-                left: "2vw",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center",
-                padding: "1vw",
+                justifyContent: "flex-start",
                 gap: "1vw",
                 cursor: "pointer",
               }}

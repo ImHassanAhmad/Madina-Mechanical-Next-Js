@@ -7,12 +7,12 @@ function Navbar(props) {
       id="home"
       style={{
         width: "100%",
-        padding: "3vh 0",
+        padding: "10vh 0",
         height: "100%",
         height:
           props.windowDimensions && props.windowDimensions.width <= 780
             ? "100%"
-            : "40vh",
+            : "50vh",
         backgroundImage: `linear-gradient(to bottom, rgb(112,112,112,0.85), rgb(56,56,56,0.95)),
         url(http:${props.fields.fields.file.url})`,
         backgroundSize: "cover",
@@ -30,7 +30,10 @@ function Navbar(props) {
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          marginTop: "40px",
+          margin:
+            props.windowDimensions && props.windowDimensions.width <= 580
+              ? "2vh 0"
+              : "50px 0 10px 0",
         }}
       >
         <p className={styles.headerTitle}>

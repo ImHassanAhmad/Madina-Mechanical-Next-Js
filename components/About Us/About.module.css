@@ -2,7 +2,6 @@
   font-style: normal;
   font-weight: bold;
   font-size: 1rem;
-  line-height: 19px;
   background: linear-gradient(97.54deg, #2ea83f 38.07%, #2ec743 93.63%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -18,14 +17,15 @@
 
 .aboutText {
   font-weight: 700;
-  font-size: 25px;
-  line-height: 42px;
+  font-size: 1.5rem;
+  line-height: 4vh;
   letter-spacing: 0.02em;
   color: #383838;
   margin: 5px 0px 20px 0px;
 }
 
 .accordian {
+  cursor: pointer;
   width: 100%;
   background: #ffffff;
   border-radius: 8px;
@@ -33,17 +33,18 @@
   margin-bottom: 21px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
     rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-  max-height: 6vh;
+  max-height: 60px;
   transition: max-height 0.2s ease-out;
 }
 
 .accordianTitle {
   font-weight: 550;
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: 650;
   padding-left: 25px;
   color: #4f4f4f;
   margin: 2vh 0px;
+  user-select: none;
 }
 
 .accordianDescription {
@@ -54,35 +55,54 @@
   color: rgba(56, 56, 56, 0.8);
 }
 
+.image2 {
+  position: absolute;
+  width: 30vw;
+  left: 55%;
+  bottom: -8vh;
+}
+
 @media (max-width: 945px) {
   .aboutTitle {
     font-size: 12px;
   }
   .aboutText {
-    font-size: 20px;
+    font-size: 1.3rem;
   }
   .accordianTitle {
-    font-size: 15px;
+    font-size: 1.3rem;
   }
   .accordianDescription {
     font-size: 13px;
   }
 }
 
-@media (max-width: 720px) {
-  .accordianTitle {
-    font-size: 13px;
-  }
+@media (max-width: 780px) {
   .accordianDescription {
     font-size: 11px;
+  }
+  .image2 {
+    width: 40vw;
+  }
+  .accordian {
+    max-height: 40px;
   }
 }
 
 @media (max-width: 330px) {
   .accordianTitle {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .accordianDescription {
     font-size: 10px;
+  }
+  .image2 {
+    bottom: -6vh;
+  }
+}
+
+@media (max-width: 1024px) and (max-height: 600px) {
+  .image2 {
+    bottom: -20vh;
   }
 }

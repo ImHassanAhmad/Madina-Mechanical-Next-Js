@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./Footer.module.css";
 import Logo from "../../assets/logo.png";
 import Fb from "../../assets/fb.png";
-import Twitter from "../../assets/twitter.png";
+import Wa from "../../assets/wa.png";
 import Insta from "../../assets/insta.png";
 import Contact from "../../assets/contact.png";
 import Msg from "../../assets/msg.png";
@@ -111,31 +111,31 @@ function Navbar(props) {
               link: "https://www.facebook.com/madina.mechanical/",
             },
             {
-              icon: Twitter,
-              alt: "madina mechanical inc logo twitter",
-              link: "/",
+              icon: Wa,
+              alt: "madina mechanical inc logo Wa",
+              link: "https://api.whatsapp.com/send?phone=4164244328",
             },
             {
               icon: Insta,
               alt: "madina mechanical inc logo instagram",
-              link: "/",
+              link: "https://www.instagram.com/madinamechanical/",
             },
           ].map((elm, i) => (
-            <Image
-              key={i}
-              src={elm.icon}
-              alt={elm.alt}
-              style={{
-                cursor: "pointer",
-                transform:
-                  props.windowDimensions && props.windowDimensions.width >= 580
-                    ? "scale(1)"
-                    : "scale(0.7)",
-              }}
-              onClick={() => {
-                window.open(elm.link, "_blank");
-              }}
-            />
+            <a href={elm.link} target="_blank">
+              <Image
+                key={i}
+                src={elm.icon}
+                alt={elm.alt}
+                style={{
+                  cursor: "pointer",
+                  transform:
+                    props.windowDimensions &&
+                    props.windowDimensions.width >= 580
+                      ? "scale(1)"
+                      : "scale(0.7)",
+                }}
+              />
+            </a>
           ))}
         </span>
       </div>
@@ -147,19 +147,22 @@ function Navbar(props) {
               name: props.info.adress,
               icon: Map,
               alt: "madina mechanical inc logo adress",
+              link: "https://www.google.com/maps/dir//Madina+Mechanical+Inc.+100+McLevin+Ave+%23212+Scarborough,+ON+M1B+5K1+Canada/@43.8014663,-79.2365618,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89d4d0c2708a9f2f:0x3fc97325d9ff7cdd!2m2!1d-79.2365618!2d43.8014663",
             },
             {
               name: props.info.email,
               icon: Msg,
               alt: "madina mechanical inc logo email",
+              link: `mailto:${props.info.email}`,
             },
             {
               name: props.info.phone,
               icon: Contact,
               alt: "madina mechanical inc logo phone number",
+              link: `tel:${props.info.phone}`,
             },
           ].map((elm, i) => (
-            <div
+            <a
               style={{
                 display: "flex",
                 margin: "3vh 0",
@@ -167,6 +170,8 @@ function Navbar(props) {
                 alignItems: "center",
               }}
               key={i}
+              href={elm.link}
+              target="_blank"
             >
               <span
                 style={{
@@ -190,7 +195,7 @@ function Navbar(props) {
                 />
               </span>
               <p className={styles.headerDescription}>{elm.name}</p>
-            </div>
+            </a>
           ))}
         </div>
         <div>

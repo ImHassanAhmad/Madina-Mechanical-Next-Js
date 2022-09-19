@@ -41,7 +41,10 @@ function AboutUs(props) {
               props.windowDimensions && props.windowDimensions.width <= 780
                 ? "12vw"
                 : "3vw",
-            top: "5vh",
+            top:
+              props.windowDimensions && props.windowDimensions.width <= 780
+                ? "5vh"
+                : "10vh",
           }}
         >
           <div
@@ -56,30 +59,13 @@ function AboutUs(props) {
             <img
               src={`http:${props.fields[0].fields.file.url}`}
               className={styles.responsiveImg}
-              alt="hvac engineeringh image 1"
+              alt="hvac engineering image 1"
             />
-            <div
-              style={{
-                position: "absolute",
-                width:
-                  props.windowDimensions && props.windowDimensions.width <= 780
-                    ? "50vw"
-                    : "30vw",
-                height: "15vh",
-                left: "55%",
-                bottom:
-                  props.windowDimensions && props.windowDimensions.width < 520
-                    ? "0"
-                    : props.windowDimensions &&
-                      props.windowDimensions.width <= 780
-                    ? "10vh"
-                    : "1vh",
-              }}
-            >
+            <div className={styles.image2}>
               <img
                 src={`http:${props.fields[1].fields.file.url}`}
                 className={styles.responsiveImg}
-                alt="hvac engineeringh image 2"
+                alt="hvac engineering image 2"
               />
             </div>
           </div>

@@ -20,19 +20,20 @@ export async function getStaticProps() {
     accessToken: "lKmKCfDCDH-rUOQMkKxteCtKOtM0e3wTb_dUF0TbPk4",
   });
 
-  const res = await client.getEntries({ content_type: "madinaMechanical" });
-  let apiData = res.items[0].fields;
-  const res2 = await client.getEntries({ content_type: "reviews" });
+  let [res, res2, res3] = await Promise.all([
+    client.getEntries({ content_type: "madinaMechanical" }),
+    client.getEntries({ content_type: "reviews" }),
+    client.getEntries({ content_type: "info" }),
+  ]);
+
   let reviews = [{ name: "description" }];
   res2.items.forEach((e) => reviews.push(e.fields));
-  const res3 = await client.getEntries({ content_type: "info" });
-  let info = res3.items[0].fields;
 
   return {
     props: {
-      apiData,
+      apiData: res.items[0].fields,
       reviews,
-      info,
+      info: res3.items[0].fields,
     },
   };
 }

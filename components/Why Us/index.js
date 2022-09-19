@@ -34,7 +34,7 @@ function WhyUs(props) {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "3vh",
+          gap: "2vh",
           justifyContent: "center",
           alignItems:
             props.windowDimensions && props.windowDimensions.width <= 780
@@ -44,7 +44,16 @@ function WhyUs(props) {
       >
         <p className={styles.headerTitle}>WHY US</p>
         <p className={styles.headerMain}>Our Capabilities</p>
-        <p style={{ fontSize: "1rem", color: "rgba(56, 56, 56, 0.8)" }}>
+        <p
+          style={{
+            fontSize: "1rem",
+            color: "rgba(56, 56, 56, 0.8)",
+            textAlign:
+              props.windowDimensions && props.windowDimensions.width <= 780
+                ? "center"
+                : "start",
+          }}
+        >
           Madina Mechanical is Toronto’s top HVAC (heating, ventilation and air
           conditioning) service. Our professional team has provided affordable
           HVAC services to the GTA for over 35 years.{" "}

@@ -28,7 +28,7 @@ function Milestone(props) {
       >
         <div>
           <p className={styles.headerTitle}>MILESTONE</p>
-          <p className={styles.headerDescription}>
+          <p className={styles.milestoneDescription}>
             How about some fact number about us
           </p>
         </div>

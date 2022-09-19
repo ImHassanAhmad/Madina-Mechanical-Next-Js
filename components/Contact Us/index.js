@@ -251,7 +251,6 @@ function ContactUs(props) {
         }}
         allowFullScreen="allowfullscreen"
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
     </div>
   );

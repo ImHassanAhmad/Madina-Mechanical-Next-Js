@@ -11,13 +11,13 @@ function Grid(props) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems:
-                  props.windowDimensions && props.windowDimensions.width <= 720
+                  props.windowDimensions && props.windowDimensions.width <= 820
                     ? "center"
                     : "flex-start",
                 height: "auto",
-                gap: "2vh",
+                gap: "1.5vh",
                 background: "inherit",
-                padding: "5%",
+                padding: "1vh 2vw",
               }}
             >
               <p className={styles.headerTitle}>Testimonials</p>
@@ -39,7 +39,7 @@ function Grid(props) {
                     : "",
                 display: "flex",
                 flexDirection: "column",
-                gap: "3vh",
+                gap: "2vh",
                 // justifyContent: "space-between",
                 alignItems:
                   props.windowDimensions && props.windowDimensions.width <= 720
@@ -50,7 +50,7 @@ function Grid(props) {
                 border: "1px solid #EFF0F7",
                 boxShadow: "0px 5px 14px rgba(8, 15, 52, 0.04)",
                 borderRadius: "8px",
-                padding: "3%",
+                padding: "2vh 3vw",
               }}
             >
               <p
@@ -79,7 +79,7 @@ function Grid(props) {
                 >
                   <p
                     style={{
-                      color: "#383838",
+                      color: "white",
                       fontSize: "1.5rem",
                       fontWeight: "bold",
                     }}

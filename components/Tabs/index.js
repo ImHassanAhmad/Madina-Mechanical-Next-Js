@@ -43,7 +43,7 @@ function Navbar(props) {
       }}
     >
       <p className={styles.headerTitle}>Our Latest Work</p>
-      <p className={styles.headerDescription}>
+      <p className={styles.tabDescription}>
         HVAC service doesn’t need to be stressful! We are Toronto’s best HVAC
         solution.. Affordable HVAC in Toronto (GTA) has never been so great!
         When you work with us, we listento your needs. When people think heating

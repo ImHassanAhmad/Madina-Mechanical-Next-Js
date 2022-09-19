@@ -7,6 +7,8 @@
 }
 
 html {
+  margin: 0;
+  padding: 0;
   font-weight: normal;
   font-size: 15px;
   scroll-behavior: smooth;
@@ -15,6 +17,8 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
+  overflow: overlay;
   text-align: start;
   font-family: "Roboto";
   -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -22,7 +26,23 @@ body {
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4bab58;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 @media (max-width: 650px) {

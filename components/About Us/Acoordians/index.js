@@ -8,7 +8,7 @@ function Accordians(props) {
 
   useEffect(() => {
     var panel = document.getElementById("accordian0");
-    panel.style.maxHeight = panel.scrollHeight + "px";
+    panel.style.maxHeight = panel.scrollHeight + 20 + "px";
   }, []);
 
   return (
@@ -57,27 +57,36 @@ function Accordians(props) {
           },
         ].map((e, i) => {
           return (
-            <div className={styles.accordian} key={i} id={`accordian${i}`}>
+            <div
+              className={styles.accordian}
+              key={i}
+              id={`accordian${i}`}
+              onClick={() => {
+                if (isShowing != e.name) setIsShowing(e.name);
+                else setIsShowing("");
+                var panel = document.getElementById(`accordian${i}`);
+                if (panel.style.maxHeight) {
+                  panel.style.maxHeight = null;
+                } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+              }}
+            >
               <div
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
+                  height:
+                    props.windowDimensions &&
+                    props.windowDimensions.width >= 780
+                      ? "60px"
+                      : "40px",
                 }}
               >
                 <p className={styles.accordianTitle}>{e.name}</p>
                 <FontAwesomeIcon
                   icon={faPlus}
-                  onClick={() => {
-                    if (isShowing != e.name) setIsShowing(e.name);
-                    else setIsShowing("");
-                    var panel = document.getElementById(`accordian${i}`);
-                    if (panel.style.maxHeight) {
-                      panel.style.maxHeight = null;
-                    } else {
-                      panel.style.maxHeight = panel.scrollHeight + "px";
-                    }
-                  }}
                   style={{
                     color: "#333333",
                     height:
@@ -91,7 +100,6 @@ function Accordians(props) {
                         ? "17px"
                         : "13px",
                     marginRight: "25px",
-                    cursor: "pointer",
                     transition: "0.5s",
                     transform: isShowing == e.name ? "rotate(45deg)" : "",
                   }}

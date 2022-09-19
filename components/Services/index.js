@@ -27,11 +27,14 @@ function Grid(props) {
                 : "flex-start",
             justifyContent: "center",
             height:
-              (props.windowDimensions &&
-                props.windowDimensions.width <= 720 &&
-                elm.name == "services") ||
-              elm.name == "card"
-                ? "auto"
+              props.windowDimensions &&
+              props.windowDimensions.width <= 720 &&
+              elm.name == "services"
+                ? "20vh"
+                : props.windowDimensions &&
+                  props.windowDimensions.width <= 720 &&
+                  elm.name == "card"
+                ? "100%"
                 : "30vh",
             background:
               elm.name == "services"
@@ -41,12 +44,11 @@ function Grid(props) {
                 : "grey",
             opacity: elm.name == "card" ? "0.8" : "1",
             borderRadius: "8.14935px",
-            padding: "7%",
             backgroundImage:
               elm.name == "a"
                 ? `url(http:${props.fields[elm.num].fields.file.url})`
                 : "",
-            backgroundSize: "100%",
+            backgroundSize: "cover",
           }}
         >
           {elm.name == "services" ? (
@@ -87,7 +89,14 @@ function Grid(props) {
               </a>
             </Fragment>
           ) : elm.name == "card" ? (
-            <Fragment>
+            <div
+              style={{
+                padding: "4vh 3vw",
+                display: "flex",
+                flexDirection: "column",
+                gap: "2vh",
+              }}
+            >
               <p className={styles.cardheaderTitle}>
                 Industrial and residential HVAC solutions in Toronto and beyond
               </p>
@@ -101,7 +110,6 @@ function Grid(props) {
                 href="#contactUs"
                 style={{
                   width: "100%",
-                  position: "relative",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "flex-start",
@@ -109,13 +117,13 @@ function Grid(props) {
                   cursor: "pointer",
                 }}
               >
-                <p style={{ color: "white", fontSize: "0.9rem" }}>Get Quote </p>
+                <p style={{ color: "white", fontSize: "0.8rem" }}>Get Quote </p>
                 <FontAwesomeIcon
                   icon={faArrowRight}
                   style={{ color: "white" }}
                 />
               </a>
-            </Fragment>
+            </div>
           ) : null}
         </div>
       ))}
