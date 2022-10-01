@@ -161,7 +161,7 @@ function Navbar(props) {
               ? "40vh"
               : "70vh",
           backgroundImage:
-            "linear-gradient(to bottom, rgb(112,112,112,0.7), rgb(56,56,56,0.8))",
+            "linear-gradient(to bottom, rgb(112,112,112,0.85), rgb(56,56,56,0.95))",
           backgroundSize: "cover",
           zIndex: "1",
         }}
