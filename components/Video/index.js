@@ -61,20 +61,6 @@ function Video(props) {
         )}
       </div>
 
-      {/* <iframe
-        style={{
-          height:
-            props.windowDimensions && props.windowDimensions.width <= 780 ? "25vh" : "50vh",
-          width: "100%",
-          borderRadius: "8px",
-          border: "none",
-        }}
-        src={`http:${props.fields.fields.file.url}`}
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        title="Madina Mechanical Video"
-      ></iframe> */}
-
       <video
         style={{
           height:

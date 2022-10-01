@@ -7,6 +7,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  z-index: 2;
 }
 
 .headerDescription {
@@ -21,6 +22,22 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  z-index: 2;
+}
+
+.cell {
+  margin-top: 2vh;
+  padding: 0 10vw;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 750;
+  font-size: 1.2rem;
+  text-align: center;
+  background: linear-gradient(97.54deg, #2ea83f 38.07%, #2ec743 93.63%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: 2;
 }
 
 @media (max-width: 945px) {
@@ -30,6 +47,9 @@
   .headerDescription {
     font-size: 0.8rem;
   }
+  .cell {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 720px) {
@@ -38,6 +58,9 @@
   }
   .headerDescription {
     font-size: 0.7rem;
+  }
+  .cell {
+    font-size: 0.9rem;
   }
 }
 

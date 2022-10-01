@@ -113,7 +113,7 @@ function Navbar(props) {
             {
               icon: Wa,
               alt: "madina mechanical inc logo Wa",
-              link: "https://api.whatsapp.com/send?phone=4164244328",
+              link: "https://api.whatsapp.com/send?phone=14168781581",
             },
             {
               icon: Insta,

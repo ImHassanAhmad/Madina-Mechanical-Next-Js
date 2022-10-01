@@ -57,7 +57,7 @@ function Navbar(props) {
             justifyContent: "space-between",
             alignItems: "center",
             padding: "0rem 4.5vw",
-            zIndex: "1",
+            zIndex: "3",
           }}
         >
           <Image
