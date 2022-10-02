@@ -75,7 +75,10 @@ function Video(props) {
         muted
         ref={videoEl}
       >
-        <source src={`http:${props.fields.fields.file.url}`} type="video/mp4" />
+        <source
+          src={`httpss:${props.fields.fields.file.url}`}
+          type="video/mp4"
+        />
       </video>
     </div>
   );

@@ -48,7 +48,7 @@ function Navbar(props) {
           ref={videoEl}
         >
           <source
-            src={`http:${props.fields.fields.file.url}`}
+            src={`https:${props.fields.fields.file.url}`}
             type="video/mp4"
           />
         </video>

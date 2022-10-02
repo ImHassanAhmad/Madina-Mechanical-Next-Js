@@ -108,17 +108,17 @@ function Navbar(props) {
             {
               icon: Fb,
               alt: "madina mechanical inc logo facebook",
-              link: "https://www.facebook.com/madina.mechanical/",
+              link: "httpss://www.facebook.com/madina.mechanical/",
             },
             {
               icon: Wa,
               alt: "madina mechanical inc logo Wa",
-              link: "https://api.whatsapp.com/send?phone=14168781581",
+              link: "httpss://api.whatsapp.com/send?phone=14168781581",
             },
             {
               icon: Insta,
               alt: "madina mechanical inc logo instagram",
-              link: "https://www.instagram.com/madinamechanical/",
+              link: "httpss://www.instagram.com/madinamechanical/",
             },
           ].map((elm, i) => (
             <a key={i} href={elm.link} target="_blank" rel="noreferrer">
@@ -147,7 +147,7 @@ function Navbar(props) {
               name: props.info.adress,
               icon: Map,
               alt: "madina mechanical inc logo adress",
-              link: "https://www.google.com/maps/dir//Madina+Mechanical+Inc.+100+McLevin+Ave+%23212+Scarborough,+ON+M1B+5K1+Canada/@43.8014663,-79.2365618,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89d4d0c2708a9f2f:0x3fc97325d9ff7cdd!2m2!1d-79.2365618!2d43.8014663",
+              link: "httpss://www.google.com/maps/dir//Madina+Mechanical+Inc.+100+McLevin+Ave+%23212+Scarborough,+ON+M1B+5K1+Canada/@43.8014663,-79.2365618,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89d4d0c2708a9f2f:0x3fc97325d9ff7cdd!2m2!1d-79.2365618!2d43.8014663",
             },
             {
               name: props.info.email,

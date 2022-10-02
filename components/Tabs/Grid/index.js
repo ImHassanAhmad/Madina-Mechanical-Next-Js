@@ -26,7 +26,7 @@ function Grid(props) {
           key={i}
           style={{
             height: "100%",
-            backgroundImage: `url(http:${
+            backgroundImage: `url(https:${
               props.fields[props.tab][0].fields.file.url
             })`,
             backgroundSize: "cover",
@@ -104,7 +104,7 @@ function Grid(props) {
               key={i}
               style={{
                 height: "100%",
-                backgroundImage: `url(http:${
+                backgroundImage: `url(https:${
                   props.fields[props.tab][2].fields.file.url
                 })`,
                 backgroundSize: "cover",
@@ -120,7 +120,7 @@ function Grid(props) {
             key={i}
             style={{
               height: "50%",
-              backgroundImage: `url(http:${
+              backgroundImage: `url(https:${
                 props.fields[props.tab][1].fields.file.url
               })`,
               backgroundSize: "cover",

@@ -46,7 +46,7 @@ function Grid(props) {
             borderRadius: "8.14935px",
             backgroundImage:
               elm.name == "a"
-                ? `url(http:${props.fields[elm.num].fields.file.url})`
+                ? `url(https:${props.fields[elm.num].fields.file.url})`
                 : "",
             backgroundSize: "cover",
           }}

@@ -57,13 +57,13 @@ function AboutUs(props) {
             }}
           >
             <img
-              src={`http:${props.fields[0].fields.file.url}`}
+              src={`https:${props.fields[0].fields.file.url}`}
               className={styles.responsiveImg}
               alt="hvac engineering image 1"
             />
             <div className={styles.image2}>
               <img
-                src={`http:${props.fields[1].fields.file.url}`}
+                src={`https:${props.fields[1].fields.file.url}`}
                 className={styles.responsiveImg}
                 alt="hvac engineering image 2"
               />
