@@ -76,7 +76,7 @@ function Video(props) {
         ref={videoEl}
       >
         <source
-          src={`httpss:${props.fields.fields.file.url}`}
+          src={`https:${props.fields.fields.file.url}`}
           type="video/mp4"
         />
       </video>
