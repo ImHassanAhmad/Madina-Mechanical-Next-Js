@@ -28,25 +28,22 @@ function ContactUs(props) {
     if (!loading) {
       e.preventDefault();
       setLoading(true);
-      const client = createClient({
-        accessToken: "CFPAT-fZlTwU6-C7USJjKu4obEQDohomO3txIGNjDAOnBLT38",
-      });
 
-      client
-        .getSpace("ekq2l24qwz6g")
-        .then((space) => space.getEnvironment("master"))
-        .then((environment) =>
-          environment.createEntry("messages", {
-            fields: {
-              firstName: { "en-US": firstName },
-              lastName: { "en-US": lastName },
-              email: { "en-US": email },
-              message: { "en-US": message },
-            },
-          })
-        )
-        .then(() => showNoti())
-        .catch(console.error);
+      fetch("api/contact", {
+        method: "POST",
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          message,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }).then(() => {
+        showNoti();
+      });
     }
   }
 
