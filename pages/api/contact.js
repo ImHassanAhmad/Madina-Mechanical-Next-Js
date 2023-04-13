@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     try {
       await transporter.sendMail({
         ...mailOptions,
-        subject: `Customer Message (${firstName} ${lastName})`,
+        subject: `${email} (${firstName} ${lastName})`,
         text: message,
       });
       res.status(200).json(req.body);
